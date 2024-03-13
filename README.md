@@ -5,6 +5,7 @@ Copyright 2024 Diffraction Limited
 
 # Requirements
 
+- Boltwood CSIII with firmware rev12 or greater
 - Python 3.10 or above
 - PySerial 3.5 or above
 
