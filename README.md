@@ -47,6 +47,8 @@ $ sudo usermod -a -G dialout $USER
 where you replace `$USER` with your user account name.
 
 ## The serial API
+For a more detailed explanation of the Serial API, visit our [wiki](https://github.com/Diffraction-Limited/pyboltwood/wiki/Serial-API-Reference). 
+
 The boltwood package attempts to reflect the Boltwood serial API as closely as possible. The API is designed to operate similarly to a thinned down HTTP protocol where requests have a verb (e.g. "G" for Get) followed by an interface endpoint (e.g. "DD" for Device Descriptor) followed by a property (e.g. "serial" for Serial Number) and optionally a value. Responses will always have a status code and optionally a return value or error message in the event the message is a failure.
 
 Messages are case insensitive and must be terminated by a linefeed character (`\n`). 
