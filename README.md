@@ -1,6 +1,6 @@
 # pyboltwood 
 
-A Boltwood CS III Serial API wrapper for Python
+A [Boltwood Cloud Sensor III](https://diffractionlimited.com/cloud-sensor/) Serial API wrapper for Python
 
 Copyright 2024 Diffraction Limited
 
