@@ -67,6 +67,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 </code></pre>
 <p>where you replace <code>$USER</code> with your user account name.</p>
 <h2 id="the-serial-api">The serial API</h2>
+<p>For a more detailed explanation of the Serial API, visit our <a href="https://github.com/Diffraction-Limited/pyboltwood/wiki/Serial-API-Reference">wiki</a>.</p>
 <p>The boltwood package attempts to reflect the Boltwood serial API as closely as possible. The API is designed to operate similarly to a thinned down HTTP protocol where requests have a verb (e.g. "G" for Get) followed by an interface endpoint (e.g. "DD" for Device Descriptor) followed by a property (e.g. "serial" for Serial Number) and optionally a value. Responses will always have a status code and optionally a return value or error message in the event the message is a failure.</p>
 <p>Messages are case insensitive and must be terminated by a linefeed character (<code>\n</code>). </p>
 <h3 id="requests">Requests</h3>
