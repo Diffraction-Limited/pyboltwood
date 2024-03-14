@@ -4,7 +4,7 @@
 
 """
 
-# Module: boltwood.py
+# Module: pyboltwood.py
 # Author: Adam Robichaud <arobichaud@diffractionlimited.com>
 # License: MIT License
 #
@@ -43,7 +43,7 @@ class Interfaces:
 
     Examples
     --------
-    >>> from boltwood import Boltwood, Interfaces, ObservingConditions, DeviceDescriptor
+    >>> from pyboltwood import Boltwood, Interfaces, ObservingConditions, DeviceDescriptor
     >>> bcs = Boltwood("COM1")
     >>> bcs.open()
     >>> bcs.get(Interfaces.OC, ObservingConditions.TEMPERATURE)
@@ -145,7 +145,7 @@ class ObservingConditions:
 
         Examples
         --------
-        >>> from boltwood import Boltwood, ObservingConditions
+        >>> from pyboltwood import Boltwood, ObservingConditions
         >>> bcs = Boltwood("COM1")
         >>> bcs.open()
         >>> rc, raw_values = bcs.getOCAll()
@@ -183,7 +183,7 @@ class SafetyMonitor:
     Examples
     --------
 
-    >>> from boltwood import Boltwood, SafetyMonitor
+    >>> from pyboltwood import Boltwood, SafetyMonitor
     >>> bcs = Boltwood("COM1")
     >>> bcs.open()
     >>> bcs.getSM(SafetyMonitor.IS_SAFE)
@@ -391,7 +391,7 @@ class EngineeringData:
         --------
         When `EngineeringData[COND_OVERCAST] == 0`
 
-        >>> from boltwood import Boltwood, EngineeringData
+        >>> from pyboltwood import Boltwood, EngineeringData
         >>> bcs = Boltwood("COM1")
         >>> bcs.open()
         >>> rc, vals = bcs.getENAll()
@@ -486,7 +486,7 @@ class EngineeringData:
 
         Examples
         --------
-        >>> from boltwood import Boltwood, EngineeringData
+        >>> from pyboltwood import Boltwood, EngineeringData
         >>> bcs = Boltwood("COM1")
         >>> bcs.open()
         >>> rc, raw_values = bcs.getENAll()
@@ -509,7 +509,7 @@ class EngineeringData:
 
         Examples
         --------
-        >>> from boltwood import Boltwood, EngineeringData
+        >>> from pyboltwood import Boltwood, EngineeringData
         >>> bcs = Boltwood("COM1")
         >>> bcs.open()
         >>> rc, raw_values = bcs.getOCAll()
@@ -622,7 +622,7 @@ class Thresholds:
 
         Examples
         --------
-        >>> from boltwood import Boltwood, Thresholds
+        >>> from pyboltwood import Boltwood, Thresholds
         >>> bcs = Boltwood("COM1")
         >>> bcs.open()
         >>> rc, raw_values = bcs.getOCThresholds()
@@ -649,7 +649,7 @@ class Thresholds:
 
         Examples
         --------
-        >>> from boltwood import Boltwood, Thresholds
+        >>> from pyboltwood import Boltwood, Thresholds
         >>> bcs = Boltwood("COM1") 
         >>> bcs.open()
         >>> # Fetch existing thresholds first
@@ -733,7 +733,7 @@ class Boltwood:
         e.g.
 
         ```python
-        from boltwood import Boltwood
+        from pyboltwood import Boltwood
 
         bcs = Boltwood("COM1")                          # for Windows machines
         bcs = Boltwood("/dev/ttyUSB0")                  # for Linux machines
@@ -783,7 +783,7 @@ class Boltwood:
         --------
         Windows
 
-        >>> from boltwood import Boltwood
+        >>> from pyboltwood import Boltwood
         >>> Boltwood.scan()
         [ "COM1", "COM3" ]
         
@@ -856,7 +856,7 @@ class Boltwood:
 
         Examples
         --------
-        >>> from boltwood import Boltwood, Interfaces, ObservingConditions
+        >>> from pyboltwood import Boltwood, Interfaces, ObservingConditions
         >>> bcs = Boltwood("COM1")
         >>> bcs.get(Interfaces.OC, ObservingConditions.TEMPERATURE)
         (True, "-12.0")
@@ -1000,7 +1000,7 @@ class Boltwood:
 
         Examples
         --------
-        >>> from boltwood import Boltwood, Interfaces, ObservingConditions
+        >>> from pyboltwood import Boltwood, Interfaces, ObservingConditions
         >>> bcs = Boltwood("COM1")
         >>> bcs.open()
         >>> bcs.put(Interfaces.DD, DeviceDescriptor.STA_SSID, "MyWiFiSSID")
