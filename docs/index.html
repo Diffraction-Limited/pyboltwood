@@ -1,0 +1,4599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>cloudsensor API documentation</title>
+<meta name="description" content="pyboltwood …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+<style>.header{display:flex;flex-direction:row;justify-content:space-between;align-items:center}.homelink{display:block;font-size:2em;font-weight:bold;color:#555;border-bottom:1px solid silver;padding:0.3em}.homelink:hover{color:inherit}.homelink img{max-width:75%;max-height:5em;margin:auto}.homelink .header-text{text-align:right}</style>
+<header class="homelink">
+<div class="header">
+<a rel="home" title="Home" href="https://cdn.diffractionlimited.com/docs/pyboltwood">
+<img src="https:////diffractionlimited.com/wp-content/uploads/2020/02/Diffraction-Logo-1.png" alt="">
+</a>
+<div class="header-text">
+Boltwood Serial API Python Wrapper Documentation
+</div>
+</div>
+</header>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>cloudsensor</code></h1>
+</header>
+<section id="section-intro">
+<h1 id="pyboltwood">pyboltwood</h1>
+<p>A Boltwood CS III Serial API wrapper for Python</p>
+<p>Copyright 2024 Diffraction Limited</p>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>Python 3.10 or above</li>
+<li>PySerial 3.5 or above</li>
+</ul>
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="installing-dependencies">Installing dependencies</h2>
+<blockquote>
+<p><strong>NOTE:</strong> This guide assumes you have Python 3.10 or greater installed on your system with the installation added to your PATH environment variable, and are familiar with basic Python toolchain tools like PyPI. You can verify this by executing:</p>
+</blockquote>
+<pre><code>&gt;&gt; python --version
+Python 3.11.8 (tags/v3.11.8:db85d51, Feb  6 2024, 22:03:32) [MSC v.1937 64 bit (AMD64)] on win32
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+</code></pre>
+<p>Begin by downloading the latest Boltwood Python package PyPI:</p>
+<pre><code>pip install pyboltwood
+</code></pre>
+<p>You can then import the library into your code using:</p>
+<pre><code class="language-python">from pyboltwood import *
+</code></pre>
+<h2 id="determining-the-boltwoods-serial-port">Determining the Boltwood's serial port</h2>
+<p>In order to communicate with your Boltwood, you need to discover which port the device is connected to. Unfortunately, every operating system has a different way of presenting serial port access, so you'll need to familiarize yourself with the process for your environment.</p>
+<h3 id="windows">Windows</h3>
+<p>Windows list connected serial devices in the Device Manager under "Ports (COM &amp; LPT)". Boltwood devices list as "USB Serial Port (COM#)", where "COM#" will be something like "COM3". That value is the port you'll be addressing when you create the <code><a title="cloudsensor.Boltwood" href="#cloudsensor.Boltwood">Boltwood</a></code> class instance.</p>
+<h3 id="ubuntu-2204-lts">Ubuntu 22.04 LTS</h3>
+<p>Linux drivers list their serial devices in the <code>/dev</code> folder. Our serial converters will typically list as <code>/dev/ttyUSB#</code> where "ttyUSB#" will be something like "ttyUSB0". This file needs to be given read/write privileges. This can be achieved with the following command:</p>
+<pre><code class="language-bash">$ sudo usermod -a -G dialout $USER
+</code></pre>
+<p>where you replace <code>$USER</code> with your user account name.</p>
+<h2 id="the-serial-api">The serial API</h2>
+<p>The boltwood package attempts to reflect the Boltwood serial API as closely as possible. The API is designed to operate similarly to a thinned down HTTP protocol where requests have a verb (e.g. "G" for Get) followed by an interface endpoint (e.g. "DD" for Device Descriptor) followed by a property (e.g. "serial" for Serial Number) and optionally a value. Responses will always have a status code and optionally a return value or error message in the event the message is a failure.</p>
+<p>Messages are case insensitive and must be terminated by a linefeed character (<code>\n</code>). </p>
+<h3 id="requests">Requests</h3>
+<p>Requests have the following structure:</p>
+<p><code>verb interface parameter [value]\n</code></p>
+<p>Where <code>verb</code> can be:</p>
+<ul>
+<li><code>G</code> for "Get", used for retrieving readable properties on a supplied interface</li>
+<li><code>P</code> for "Put", used for updating writable properties on a supplied interface</li>
+</ul>
+<p><code>interface</code> can be:</p>
+<ul>
+<li><code>OC</code> for "Observing Conditions", reflecting the ASCOM Observing Conditions interface</li>
+<li><code>SM</code> for "Safety Monitor", reflecting the ASCOM Safety Monitor interface</li>
+<li><code>DD</code> for "Device Descriptor", used for identifying information and user device settings</li>
+<li><code>EN</code> for "Engineering Data", used to access raw sampling and condition data</li>
+</ul>
+<p><code>parameter</code> is interface dependent. Properties for the various interfaces are documented in the <code>ObservingConditions</code>, <code>SafetyMonitor</code>, <code>DeviceDescriptor</code>, and <code>EngineeringData</code> classes below.</p>
+<p><code>value</code> is an optional parameter (required for Put requests) that supplies the value to pass to the Boltwood.</p>
+<h3 id="responses">Responses</h3>
+<p>Responses have the following structure:</p>
+<p><code>status_code [value|error_message]\n</code></p>
+<p>Where <code>status_code</code> can be:</p>
+<ul>
+<li><code>0</code> for Success</li>
+<li><code>1</code> for Client Error (the command supplied was invalid)</li>
+<li><code>2</code> for Server Error (the device was unable to comply with the command)</li>
+</ul>
+<p><code>value</code> is provided on <code>status_code</code> success for Get requests, and is the value obtained from the Boltwood.</p>
+<p><code>error_message</code> is a human-readable error message returned when <code>status_code</code> is non-zero describing the encountered error in detail.</p>
+<h3 id="examples">Examples</h3>
+<p>Retrieving a serial number</p>
+<pre><code>&gt;&gt; G DD SERIAL
+0 BCS3S24010203\n
+</code></pre>
+<p>Setting up your wireless connection</p>
+<pre><code>&gt;&gt; P DD STA_SSID MyObservatorySSID\n
+0
+
+&gt;&gt; P DD STA_PASS MySuperSecurePassword\n
+0
+</code></pre>
+<p>Retrieving all Engineering Data properties at once</p>
+<pre><code>&gt;&gt; G EN ALL\n
+0 20 0 ...
+</code></pre>
+<p>Attempting to set a read-only property (worth a shot)</p>
+<pre><code>&gt;&gt; P OC TEMPERATURE 21\n
+1 Invalid Argument: property 'temperature' is read-only.
+</code></pre>
+<h2 id="python-wrappers">Python wrappers</h2>
+<p>The Python wrapper <code>Boltwood</code> class acts as a controller that executes your verbs: "Get" via <code>Boltwood.get()</code> and "Put" via <code>Boltwood.put()</code>. You can then access the various interfaces and properties via access keys supplied as parameters to those functions. Interface access keys are defined as class variables in the <code>Interfaces</code> class, while Property access keys are defined as class variables in the <code>ObseringConditions</code>, <code>SafetyMonitor</code>, <code>DeviceDescriptor</code>, and <code>EngineeringData</code> classes.</p>
+<p>These wrapper functions return a tuple where the first entry is <code>True</code> or <code>False</code> depending on whether the command succeeded, and the second entry is either the value retrieved (if a value was requested/retrieved) or an error message (if the command failed).</p>
+<h3 id="examples_1">Examples</h3>
+<p>Retrieving a serial number</p>
+<pre><code class="language-python">&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; bcs.get(Interfaces.DD, DeviceDescriptor.SERIAL)
+(True, &quot;BCS3S24010203&quot;) # Success
+</code></pre>
+<p>Setting up your wireless connection</p>
+<pre><code class="language-python">&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; bcs.put(Interfaces.DD, DeviceDescriptor.STA_SSID, &quot;MyObservatorySSID&quot;)
+(True, &quot;&quot;) # Success
+&gt;&gt;&gt; bcs.put(Interfaces.DD, DeviceDescriptor.STA_PASS, &quot;MySuperSecurePassword&quot;)
+(True, &quot;&quot;) # Success
+</code></pre>
+<p>Attempting to set a read-only property (a man can dream&hellip;)</p>
+<pre><code class="language-python">&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; bcs.put(Interfaces.OC, ObservingConditions.TEMPERATURE, 21)
+(False, &quot;Invalid argument: property 'temperature' is read-only.&quot;) # Error: Invalid argument
+</code></pre>
+<h3 id="convenience-accessors">Convenience Accessors</h3>
+<p>We've also wrapped the interface accessors into their own functions:</p>
+<ul>
+<li><code><a title="cloudsensor.Boltwood.getOC" href="#cloudsensor.Boltwood.getOC">Boltwood.getOC()</a></code> </li>
+<li><code><a title="cloudsensor.Boltwood.putOC" href="#cloudsensor.Boltwood.putOC">Boltwood.putOC()</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getSM" href="#cloudsensor.Boltwood.getSM">Boltwood.getSM()</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getDD" href="#cloudsensor.Boltwood.getDD">Boltwood.getDD()</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.putDD" href="#cloudsensor.Boltwood.putDD">Boltwood.putDD()</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getEN" href="#cloudsensor.Boltwood.getEN">Boltwood.getEN()</a></code></li>
+</ul>
+<p>Where you can pass an interface access key as a parameter to the function to retrieve/set properties depending on their permissions.</p>
+<pre><code class="language-python"># Interface accessor wrappers
+&gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; bcs.getDD(DeviceDescriptor.SERIAL)
+(True, 'BCS3S24010203') # Success
+</code></pre>
+<h3 id="amalgamation-accessors">Amalgamation Accessors</h3>
+<p>We've provided convenience accessors for interface amalgamators that return the entire interface property listings:</p>
+<ul>
+<li><code><a title="cloudsensor.Boltwood.getOCAll" href="#cloudsensor.Boltwood.getOCAll">Boltwood.getOCAll()</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getENAll" href="#cloudsensor.Boltwood.getENAll">Boltwood.getENAll()</a></code></li>
+</ul>
+<p>These functions can be used in conjunction with their respective access key wrapper classes to parse the output safely:</p>
+<pre><code class="language-python"># Parsing Engineering Data amalgamator
+&gt;&gt;&gt; rc, data = bcs.getENAll()
+&gt;&gt;&gt; if rc == True: 
+&gt;&gt;&gt;    print(f'Failed to retrieve Engineering Data: {data}')
+&gt;&gt;&gt;    exit(1)
+&gt;&gt;&gt; ed = EngineeringData(data)
+&gt;&gt;&gt; ed[EngineeringData.AMBIENT_TEMP]
+&quot;-10&quot;
+
+# Parsing the Observing Conditions amalgamator
+&gt;&gt;&gt; rc, data = bcs.getOCAll()
+&gt;&gt;&gt; if rc == True: 
+&gt;&gt;&gt;     print(f'Failed to retrieve Observing Conditions: {data}')
+&gt;&gt;&gt;     exit(1)
+
+&gt;&gt;&gt; oc = ObservingConditions(data)
+&quot;-10&quot;
+</code></pre>
+<h2 id="your-first-program">Your first program</h2>
+<p>Once you've installed boltwood.py's dependencies and determined the port your Boltwood is connected to, you can write your first application. Create a new directory and place "boltwood.py" in it. Then create a new file, named "example.py" and paste the following code into it:</p>
+<pre><code class="language-python"># example.py
+from pyboltwood import Boltwood, DeviceDescriptor
+
+# Sets up a Boltwood instance on Windows COM port `&quot;COM1&quot;` 
+# and open the connection. Always wrap your code in a try-except
+# block to prevent abnormal program termination
+try:
+    bcs = Boltwood(&quot;COM1&quot;)
+    bcs.open()
+
+    # Attempt to retrieve Device Descriptor's Serial property, handle any errors
+    rc, value = bcs.get(Interface.DD, DeviceDescriptor.SERIAL)
+    if not rc:
+        # Print the supplied error message to screen
+        print(f'There was an error retrieving your device\'s serial number: {value}')
+        exit(1)
+
+    # Print the device's returned serial number
+    print(f'Success! {value}')
+except:
+    print(&quot;Failed to connect to Boltwood CSIII&quot;)
+
+</code></pre>
+<p>Be sure to update <code>"COM1"</code> with whatever serial port identifier your environment requires to communicate with your device.</p>
+<h2 id="accessing-thresholds-safety-triggers">Accessing Thresholds &amp; Safety Triggers</h2>
+<p>Thresholds and Safety Triggers are programmable via the serial API. These values represent transitions between two conditions (e.g. <code><a title="cloudsensor.Thresholds.CLEAR_CLOUDY" href="#cloudsensor.Thresholds.CLEAR_CLOUDY">Thresholds.CLEAR_CLOUDY</a></code> is the value of Sky-Ambient where the cloud sensor transitions from "Clear" to "Cloudy"), and whether they are used to determine the safe/unsafe condition and trigger the roof close signal. You can access them via the Observing Conditions interface, and we've provided a reflection class that parses the response string from the Boltwood CSIII into a dictionary of threshold and safety trigger values. You can use the <code><a title="cloudsensor.Thresholds.threshValue" href="#cloudsensor.Thresholds.threshValue">Thresholds.threshValue</a></code> class variable to look-up what value will trigger a given condition (e.g. <code><a title="cloudsensor.Thresholds.CLEAR_CLOUDY" href="#cloudsensor.Thresholds.CLEAR_CLOUDY">Thresholds.CLEAR_CLOUDY</a></code>) and use <code><a title="cloudsensor.Thresholds.roofTrig" href="#cloudsensor.Thresholds.roofTrig">Thresholds.roofTrig</a></code> to check whether that condition is actively used as a safety trigger.</p>
+<p>Retrieving device thresholds/safety triggers:</p>
+<pre><code class="language-python"># Load Boltwood library and connect to device
+&gt;&gt;&gt; from pyboltwood import Boltwood, Thresholds
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+
+# Obtain thresholds from the device and parse them using our Thresholds reflection class 
+&gt;&gt;&gt; rc, raw_values = bcs.getOCThresholds()
+&gt;&gt;&gt; values = Thresholds(raw_values)
+
+# Access the parsed values by transition access key
+&gt;&gt;&gt; values.threshValue[Thresholds.CLEAR_CLOUDY] # Access threshold's value
+-10
+&gt;&gt;&gt; values.roofTrig[Thresholds.CLEAR_CLOUDY] # Access whether transition is active as safety trigger
+0
+&gt;&gt;&gt; values[Thresholds.CLEAR_CLOUDY] # Access tuple of threshold value &amp; safety trigger
+(-10, 0)
+</code></pre>
+<p>Updating a threshold/safety trigger:</p>
+<pre><code class="language-python"># Load Boltwood library and connect to device
+&gt;&gt;&gt; from pyboltwood import Boltwood, Thresholds
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+
+# Obtain thresholds from the device and parse them using our Thresholds reflection class 
+&gt;&gt;&gt; rc, raw_values = bcs.getOCThresholds()
+&gt;&gt;&gt; values = Thresholds(raw_values)
+
+# Update the desired threshold from -10 degrees Celcius to -15, and set it as an active safety trigger
+&gt;&gt;&gt; values.threshValue[Thresholds.CLEAR_CLOUDY] = -15
+&gt;&gt;&gt; values.roofTrig[Thresholds.CLEAR_CLOUDY] = 1
+
+# Submit changes to Boltwood
+&gt;&gt;&gt; bcs.putOCThresholds(values.to_string())
+(True, &quot;&quot;) # Success
+</code></pre>
+<h1 id="license">License</h1>
+<p>This software is licensed under the MIT License.</p>
+<pre><code class="language-text">Copyright 2024 Diffraction Limited
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the “Software”), to deal in 
+the Software without restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the 
+Software, and to permit persons to whom the Software is furnished to do so, 
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
+OTHER DEALINGS IN THE SOFTWARE.
+</code></pre>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+
+.. include:: ../../README.md
+
+&#34;&#34;&#34;
+
+# Module: pyboltwood.py
+# Author: Adam Robichaud &lt;arobichaud@diffractionlimited.com&gt;
+# License: MIT License
+#
+# Copyright 2024 Diffraction Limited
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of 
+# this software and associated documentation files (the “Software”), to deal in 
+# the Software without restriction, including without limitation the rights to use, 
+# copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the 
+# Software, and to permit persons to whom the Software is furnished to do so, 
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all 
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, 
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+# OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
+# OTHER DEALINGS IN THE SOFTWARE.
+
+import serial
+import serial.tools.list_ports as serial_ports
+
+
+class Interfaces:
+    &#34;&#34;&#34;
+    A list of access keys used when accessing data via the `Boltwood.get()` and `Boltwood.put()` methods
+    
+    See Also
+    --------
+    Boltwood, ObservingConditions, SafetyMonitor, DeviceDescriptor, EngineeringData
+
+    Examples
+    --------
+    &gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions, DeviceDescriptor
+    &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+    &gt;&gt;&gt; bcs.open()
+    &gt;&gt;&gt; bcs.get(Interfaces.OC, ObservingConditions.TEMPERATURE)
+    (True, &#34;-10&#34;)
+
+    &gt;&gt;&gt; bcs.put(Interfaces.DD, DeviceDescriptor.STA_SSID, &#34;MyWiFiSSID&#34;)
+    (True, &#34;&#34;)
+
+    &gt;&gt;&gt; bcs.put(Interfaces.OC, ObservingConditions.TEMPERATURE)
+    (False, &#34;Invalid Argument: property &#39;temperature&#39; is read-only&#34;)
+    &#34;&#34;&#34;
+    
+    OC = &#39;oc&#39;
+    &#34;&#34;&#34;Access key for Observing Conditions serial interface&#34;&#34;&#34;
+
+    SM = &#39;sm&#39;
+    &#34;&#34;&#34;Access key for Safety Monitor serial interface&#34;&#34;&#34;
+
+    DD = &#39;dd&#39;
+    &#34;&#34;&#34;Access key for Device Descriptors serial interface&#34;&#34;&#34;
+
+    EN = &#39;en&#39;
+    &#34;&#34;&#34;Access key for Engineering Data serial interface&#34;&#34;&#34;
+
+class ObservingConditions:
+    ALL = &#39;all&#39;
+    &#34;&#34;&#34;Access key for a space-delimited list of all parameters in ObservingCondition (read-only)&#34;&#34;&#34;
+
+    AVERAGE_PERIOD = &#39;averageperiod&#39; 
+    &#34;&#34;&#34;Access key for the time period over which observations will be averaged in hours (read-only)&#34;&#34;&#34;
+    
+    CLOUD_COVER = &#39;cloudcover&#39; 
+    &#34;&#34;&#34;Access key for an estimate of the sky&#39;s cloud coverage in % (read-only)&#34;&#34;&#34;
+    
+    DEWPOINT = &#39;dewpoint&#39; 
+    &#34;&#34;&#34;Access key for the atmospheric dew point at the observatory in degrees Celcius (read-only)&#34;&#34;&#34;
+    
+    HUMIDITY = &#39;humidity&#39; 
+    &#34;&#34;&#34;Access key for the relative humidity at the observatory in % (read-only)&#34;&#34;&#34;
+    
+    PRESSURE = &#39;pressure&#39; 
+    &#34;&#34;&#34;Access key for the atmospheric pressure at the observatory in hPa (read-only)&#34;&#34;&#34;
+    
+    RAIN_RATE = &#39;rainrate&#39; 
+    &#34;&#34;&#34;Access key for an estimate of the rain rate at the observatory in mm/hr (read-only)&#34;&#34;&#34;
+    
+    SKY_BRIGHTNESS = &#39;skybrightness&#39; 
+    &#34;&#34;&#34;Access key for an estimate of the sky brightness at the observatory in Lux (read-only)&#34;&#34;&#34;
+    
+    SKY_QUALITY = &#39;skyquality&#39; 
+    &#34;&#34;&#34;Access key for the ASCOM sky quality property. Not supported, reports as &#39;NA&#39; (read-only)&#34;&#34;&#34;
+    
+    SKY_TEMPERATURE = &#39;skytemperature&#39; 
+    &#34;&#34;&#34;Access key for the sky temperature at the observatory in degrees Celcius (read-only)&#34;&#34;&#34;
+    
+    STAR_FWHM = &#39;starfwhm&#39; 
+    &#34;&#34;&#34;Access key for the ASCOM star FWHM property. Not supported, reports as &#39;NA&#39; (read-only)&#34;&#34;&#34;
+    
+    TEMPERATURE = &#39;temperature&#39; 
+    &#34;&#34;&#34;Access key for the ambient temperature at the observatory in degrees Celcius (read-only)&#34;&#34;&#34;
+    
+    WIND_DIRECTION = &#39;winddireciton&#39; 
+    &#34;&#34;&#34;Access key for the ASCOM Wind Direction property. Not supported, reports as &#39;NA&#39; (read-only)&#34;&#34;&#34;
+    
+    WIND_GUST = &#39;windgust&#39; 
+    &#34;&#34;&#34;Access key for the ASCOM Wind Gust property. Not supported, reports as &#39;NA&#39; (read-only)&#34;&#34;&#34;
+    
+    WIND_SPEED = &#39;windspeed&#39; 
+    &#34;&#34;&#34;Returns the wind speed at the observatory in m/s (read-only)&#34;&#34;&#34;
+
+    keys_all = [
+        AVERAGE_PERIOD,
+        CLOUD_COVER,
+        DEWPOINT,
+        HUMIDITY,
+        PRESSURE,
+        RAIN_RATE,
+        SKY_BRIGHTNESS,
+        SKY_QUALITY,
+        SKY_TEMPERATURE,
+        STAR_FWHM,
+        TEMPERATURE,
+        WIND_DIRECTION,
+        WIND_GUST,
+        WIND_SPEED,
+    ]
+    &#34;&#34;&#34;List of all keys provided by the &#39;all&#39; access key, in proper API order&#34;&#34;&#34;
+
+    _values = {}
+
+    def __init__(self, str):
+        &#34;&#34;&#34;
+        ObservingConditions &#39;all&#39; parser and list of ObservingConditions access keys
+
+        Parameters
+        ----------
+        str : string
+            Results of a call to `Boltwood.getOC(&#39;all&#39;)`
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, ObservingConditions
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; rc, raw_values = bcs.getOCAll()
+        &gt;&gt;&gt; values = ObservingConditions(raw_values)
+        &gt;&gt;&gt; print(f&#39;{values[ObservingConditions.WIND_SPEED]}&#39;)
+        1.0
+        &#34;&#34;&#34;
+        self._parse(str)
+
+    def _parse(self, str):
+        arr = str.split(&#39; &#39;)
+        for i in range(0, len(self.keys_all)):
+            self._values[self.keys_all[i]] = arr[i]
+
+    def __getitem__(self, key):
+        &#34;&#34;&#34;
+        Array accessor for parsed values, indexed by access keys listed above
+
+        Parameters
+        ----------
+        key : string
+            ObservingConditions access key to retrieve
+
+        Returns
+        -------
+        value : string
+            Stored value for provided access key 
+        &#34;&#34;&#34;
+        return self._values[key]
+
+class SafetyMonitor:
+    &#34;&#34;&#34;
+    A list of access keys used when accessing data via `Boltwood.getSM()`
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; from pyboltwood import Boltwood, SafetyMonitor
+    &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+    &gt;&gt;&gt; bcs.open()
+    &gt;&gt;&gt; bcs.getSM(SafetyMonitor.IS_SAFE)
+    (True, &#34;1&#34;)
+    &#34;&#34;&#34;
+
+    IS_SAFE = &#34;isSafe&#34;
+    &#34;&#34;&#34;
+    Access key for the ASCOM Safety Monitor &#39;isSafe&#39; property (read-only)
+    
+    1 is safe, 0 is unsafe
+    &#34;&#34;&#34;
+
+class DeviceDescriptor:
+    &#34;&#34;&#34;
+    A list of access keys when accessing data via `Boltwood.getDD()` or `Boltwood.putDD()`
+    &#34;&#34;&#34;
+
+    SERIAL = &#39;serial&#39;
+    &#34;&#34;&#34;Access key for the device&#39;s unique serial number (read-only)&#34;&#34;&#34;
+
+    FW_REVISION = &#34;fwrev&#34;
+    &#34;&#34;&#34;Access key for the device&#39;s firmware revision number (read-only)&#34;&#34;&#34;
+
+    STA_IP = &#34;sta_ip&#34;
+    &#34;&#34;&#34;Access key for the device&#39;s WiFi Station DHCP-assigned IP address (read-only)&#34;&#34;&#34;
+
+    STA_SSID = &#34;sta_ssid&#34;
+    &#34;&#34;&#34;Access key for the device&#39;s WiFi Station SSID (network name)&#34;&#34;&#34;
+
+    STA_PASS = &#34;sta_pass&#34;
+    &#34;&#34;&#34;Access key for the device&#39;s WiFi Station passphrase (write-only)&#34;&#34;&#34;
+
+    AP_SSID = &#34;ap_ssid&#34;
+    &#34;&#34;&#34;Access key for the device&#39;s factory-assigned WiFi Access Point SSID (read-only)&#34;&#34;&#34;
+
+class EngineeringData:
+    WIND_COLD       = &#39;windColdSensor&#39; 
+    &#34;&#34;&#34;Access key for EngineeringData Windspeed sensor cold stock temperature measurement (read-only)&#34;&#34;&#34;
+
+    WIND_HOT        = &#39;windHotSensor&#39;  
+    &#34;&#34;&#34;Access key for EngineeringData Windspeed sensor hot stock temperature measurement (read-only)&#34;&#34;&#34;
+
+    WINDSPEED       = &#39;windSpeed&#39;      
+    &#34;&#34;&#34;Access key for EngineeringData Windspeed sensor measurement (read-only)&#34;&#34;&#34;
+
+    PRESSURE        = &#39;pressure&#39;       
+    &#34;&#34;&#34;Access key for EngineeringData Pressure sensor measurement (read-only)&#34;&#34;&#34;
+
+    PRESSURE_TEMP   = &#39;pressureTemp&#39;   
+    &#34;&#34;&#34;Access key for EngineeringData Pressure sensor temperature measurement (read-only)&#34;&#34;&#34;
+
+    AMBIENT_TEMP    = &#39;ambientTemp&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Ambient Temperature sensor temperature measurement (read-only)&#34;&#34;&#34;
+
+    VOLTAGE         = &#39;voltage&#39;        
+    &#34;&#34;&#34;Access key for EngineeringData Power Supply Voltage sensor measurement (read-only)&#34;&#34;&#34;
+
+    DAYLIGHT        = &#39;daylightSensor&#39; 
+    &#34;&#34;&#34;Access key for EngineeringData Daylight sensor measurement (read-only)&#34;&#34;&#34;
+
+    SKY_AMBIENT     = &#39;skyAmbientTemp&#39; 
+    &#34;&#34;&#34;Access key for EngineeringData Sky Temperature minus Ambient Temperature measurement (read-only)&#34;&#34;&#34;
+
+    SKY_TEMP        = &#39;skyTemp&#39;        
+    &#34;&#34;&#34;Access key for EngineeringData Sky Temperature sensor measurement (read-only)&#34;&#34;&#34;
+
+    CASE_TEMP       = &#39;caseTemp&#39;       
+    &#34;&#34;&#34;Access key for EngineeringData Case Temperature sensor measurement (read-only)&#34;&#34;&#34;
+
+    RAIN_RAW        = &#39;rainRaw&#39;        
+    &#34;&#34;&#34;Access key for EngineeringData Rain sensor&#39;s instantaneous raw drop sample (read-only)&#34;&#34;&#34;
+
+    RAIN_DPM        = &#39;rainDpm&#39;        
+    &#34;&#34;&#34;Access key for EngineeringData Rain sensor drops/minute measurement (read-only)&#34;&#34;&#34;
+
+    HUMIDITY        = &#39;humidity&#39;       
+    &#34;&#34;&#34;Access key for EngineeringData Humidity sensor measurement (read-only)&#34;&#34;&#34;
+
+    HUMIDITY_TEMP   = &#39;humidityTemp&#39;   
+    &#34;&#34;&#34;Access key for EngineeringData Humidity sensor onboard temperature measurement (read-only)&#34;&#34;&#34;
+
+    DEWPOINT        = &#39;dewpoint&#39;      
+    &#34;&#34;&#34;Access key for EngineeringData Dewpoint sensor calculated value (read-only)&#34;&#34;&#34;
+
+    COND_OVERCAST   = &#39;condOvercast&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Overcast condition state (read-only)&#34;&#34;&#34;
+
+    COND_WIND       = &#39;condWind&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Windy condition state (read-only)&#34;&#34;&#34;
+
+    COND_BRIGHTNESS = &#39;condBrightness&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Brightness condition state (read-only)&#34;&#34;&#34;
+
+    COND_PRECIP     = &#39;condPrecipitation&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Precipitation condition state (read-only)&#34;&#34;&#34;
+
+    COND_WEATHER    = &#39;condWeather&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Overall Weather condition state (read-only)&#34;&#34;&#34;
+
+    COND_HUMIDITY   = &#39;condHumidity&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Humidity condition state (read-only)&#34;&#34;&#34;
+
+    COND_PRESSURE   = &#39;condPressure&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Pressure condition state (read-only)&#34;&#34;&#34;
+
+    COND_VOLTAGE    = &#39;condVoltage&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Voltage condition state (read-only)&#34;&#34;&#34;
+
+    def _format_lmh(self, val):
+        &#34;&#34;&#34;
+        Convenience function for formatting low/medium/high condition values
+        &#34;&#34;&#34;
+        if val == &#39;0&#39;: return &#34;low&#34;
+        if val == &#39;1&#39;: return &#34;med&#34;
+        if val == &#39;2&#39;: return &#34;high&#34;
+        return &#34;???&#34;
+
+    def _format_overcast(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting overcast condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_OVERCAST]
+        if val == &#39;0&#39;: return &#39;clear&#39;
+        if val == &#39;1&#39;: return &#39;cloudy&#39;
+        if val == &#39;2&#39;: return &#39;vcloudy&#39;
+        return &#39;???&#39;
+
+    def _format_wind(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting windy condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_WIND]
+        if val == &#39;0&#39;: return &#39;calm&#39;
+        if val == &#39;1&#39;: return &#39;windy&#39;
+        if val == &#39;2&#39;: return &#39;vwindy&#39;
+        return &#39;???&#39;
+
+    def _format_bright(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting brightness condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_BRIGHTNESS]
+        if val == &#39;0&#39;: return &#39;dark&#39;
+        if val == &#39;1&#39;: return &#39;light&#39;
+        if val == &#39;2&#39;: return &#39;vlight&#39;
+        return &#39;???&#39;
+
+    def _format_precip(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting precipitation condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_PRECIP]
+        temp = float(self.values[self.AMBIENT_TEMP])
+        if val == &#39;0&#39;: return &#39;dry&#39;
+        if val == &#39;1&#39;: return &#39;raining&#39; if temp &gt; 0 else &#39;snowing&#39;
+        if val == &#39;2&#39;: return &#39;snowing&#39;
+        return &#39;???&#39;
+
+    def _format_weather(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting overall weather condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_WEATHER]
+        if val == &#39;0&#39;: return &#39;unsafe&#39;
+        if val == &#39;1&#39;: return &#39;safe&#39;
+        return &#39;???&#39;
+    
+    def _format_humidity(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting humidity condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_HUMIDITY]
+        return self._format_lmh(val)  
+
+    def _format_pressure(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting pressure condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_PRESSURE]
+        return self._format_lmh(val)  
+
+    def _format_voltage(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting voltage condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_VOLTAGE]
+        return self._format_lmh(val)  
+
+    def get_cond(self, key):
+        &#34;&#34;&#34;
+        Convenience function for formatting condition values into human-readable strings
+
+        Parameters
+        ----------
+        key : string
+            EngineeringData condition Access key to format. e.g. `EngineeringData.COND_OVERCAST`
+
+        Returns
+        -------
+        formatted_value : string
+            Human readable interpretation of the condition enumerations
+
+        Examples
+        --------
+        When `EngineeringData[COND_OVERCAST] == 0`
+
+        &gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; rc, vals = bcs.getENAll()
+        &gt;&gt;&gt; ed = EngineeringData(vals)
+        &gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+        &#39;clear&#39;
+
+        When `EngineeringData[COND_OVERCAST] == 1`
+        
+        &gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+        &#39;cloudy&#39;
+        
+        When `EngineeringData[COND_OVERCAST] == 2`
+
+        &gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+        &#39;vcloudy&#39;
+
+        
+
+        &#34;&#34;&#34;
+        match key:
+            case self.COND_OVERCAST:
+                return self._format_overcast()
+            case self.COND_WIND:
+                return self._format_wind()
+            case self.COND_BRIGHTNESS:
+                return self._format_bright()
+            case self.COND_PRECIP:  
+                return self._format_precip()
+            case self.COND_WEATHER: 
+                return self._format_weather()
+            case self.COND_HUMIDITY: 
+                return self._format_humidity()
+            case self.COND_PRESSURE:  
+                return self._format_pressure()
+            case self.COND_VOLTAGE:          
+                return self._format_voltage()
+        return &#34;???&#34;    
+    
+    keys_cond = [        
+        COND_OVERCAST,
+        COND_WIND,
+        COND_BRIGHTNESS,
+        COND_PRECIP,
+        COND_WEATHER,
+        COND_HUMIDITY,
+        COND_PRESSURE,
+        COND_VOLTAGE
+    ]
+    &#34;&#34;&#34;List of EngineeringData condition keys&#34;&#34;&#34;
+
+    keys = [
+        WIND_HOT,
+        WIND_COLD,
+        WINDSPEED,
+        PRESSURE,
+        PRESSURE_TEMP,
+        AMBIENT_TEMP,
+        VOLTAGE,
+        DAYLIGHT,
+        SKY_AMBIENT,
+        SKY_TEMP,
+        CASE_TEMP,
+        RAIN_RAW,
+        RAIN_DPM,
+        HUMIDITY,
+        HUMIDITY_TEMP,
+        DEWPOINT
+    ]
+    &#34;&#34;&#34;List of EngineeringData parameter keys&#34;&#34;&#34;
+
+    values = {}
+    &#34;&#34;&#34;
+        Storage array for parsed values. 
+        
+        We advise you use array access on the storage class instance to access (see examples).
+
+        Parameters
+        ----------
+        key : string
+            Either an accessor key provided above (e.g. boltwood.EngineeringData.WIND_HOT or boltwood.EngineeringData.COND_OVERCAST)
+            or the raw string that key represents
+
+        Returns
+        -------
+        value : string
+            The value of the requested key
+
+        See Also
+        --------
+        Boltwood.getENAll()
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; rc, raw_values = bcs.getENAll()
+        &gt;&gt;&gt; values = EngineeringData(raw_values)
+        &gt;&gt;&gt; values[EngineeringData.WIND_HOT]
+        20
+        
+        &gt;&gt;&gt; values[EngineeringData.COND_OVERCAST]
+        0
+        &#34;&#34;&#34;
+
+    def __init__(self, str):
+        &#34;&#34;&#34;
+        Engineering Data string decoder
+        
+        Parameters
+        ----------
+        str : string
+            Value portion of a `Boltwood.getENAll()` call
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; rc, raw_values = bcs.getOCAll()
+        &gt;&gt;&gt; values = EngineeringData(raw_values)
+        &gt;&gt;&gt; print(f&#39;{values[EngineeringData.HUMIDITY]}&#39;)
+        ( 50.0, 1 )
+        &#34;&#34;&#34;
+        self._parse(str)
+
+    def _parse(self, str):
+        &#34;&#34;&#34;
+        Enineering Data decoder
+
+        Decodes the passed string from a space-delimited list of engineering data values and saves them
+        in boltwood.EngineeringData.values
+
+        Parameters
+        ----------
+        str : string
+            Value portion of a Boltwood.getENAll() call
+        &#34;&#34;&#34;
+        arr = str.split(&#39; &#39;)
+        for i in range(0, len(self.keys)):
+            self.values[self.keys[i]] = arr[i]
+        for i in range(0, len(self.keys_cond)):
+            self.values[self.keys_cond[i]] = arr[i+len(self.keys)]      
+
+    def __getitem__(self, key):
+        return self.values[key]
+    
+class Thresholds:
+    CLEAR_CLOUDY     = &#39;clearCloudy&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting cloudy when (sky temp - ambient temp) &gt; threshold in degrees Celcius&#34;&#34;&#34;
+
+    CLOUDY_VCLOUDY   = &#39;cloudyVeryCloudy&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting vcloudy when (sky temp - ambient temp) &gt; threshold in degrees Celcius&#34;&#34;&#34;
+
+    CALM_WINDY       = &#39;calmWindy&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting windy when windspeed &gt; threshold in km/h&#34;&#34;&#34;
+
+    WINDY_VWINDY     = &#39;windyVeryWindy&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting vwindy when windspeed &gt; threshold in km/h&#34;&#34;&#34;
+
+    DARK_LIGHT       = &#39;darkLight&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting light when brightness &gt; threshold in %&#34;&#34;&#34;
+
+    LIGHT_VLIGHT     = &#39;lightVeryLight&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting vlight when brightness &gt; threshold in %&#34;&#34;&#34;
+
+    RAIN_SENSITIVITY = &#39;rainSensitivity&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting rain hit when rain sensor duty cycle &gt; threshold in microseconds&#34;&#34;&#34;
+
+    RAIN_DPM         = &#39;rainDpmThreshold&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting raining/snowing when dpm &gt; threshold in drops/minute&#34;&#34;&#34;
+
+    HUMIDITY_LOW     = &#39;humidityLow&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting low humidity when humidity &lt; threshold in %&#34;&#34;&#34;
+
+    HUMIDITY_HIGH    = &#39;humidityHigh&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting high humidity when humidity &gt; threshold in %&#34;&#34;&#34;
+
+    PRESSURE_LOW     = &#39;pressureLow&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting low pressure when pressure &lt; threshold in mBar&#34;&#34;&#34;
+
+    PRESSURE_HIGH    = &#39;pressureHigh&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting high pressure when pressure &gt; threshold in mBar&#34;&#34;&#34;
+
+    VOLTAGE_LOW      = &#39;voltageLow&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting low voltage when voltage &lt; threshold in V&#34;&#34;&#34;
+
+    VOLTAGE_HIGH     = &#39;voltageHigh&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting high voltage when voltage &gt; threshold in V&#34;&#34;&#34;
+
+    keys = [
+        CLEAR_CLOUDY,     
+        CLOUDY_VCLOUDY,      
+        CALM_WINDY,       
+        WINDY_VWINDY,        
+        DARK_LIGHT,       
+        LIGHT_VLIGHT,    
+        RAIN_SENSITIVITY,
+        RAIN_DPM,       
+        HUMIDITY_LOW,      
+        HUMIDITY_HIGH, 
+        PRESSURE_LOW,      
+        PRESSURE_HIGH,      
+        VOLTAGE_LOW,       
+        VOLTAGE_HIGH
+    ]
+    &#34;&#34;&#34;List of Threshold/Safety Trigger accessor keys&#34;&#34;&#34;
+
+    threshValue = {}
+    &#34;&#34;&#34;List of Threshold values indexed by Threshold/Safety Trigger accessor keys&#34;&#34;&#34;
+
+    roofTrig = {}
+    &#34;&#34;&#34;List of Safety Trigger values indexed by Threshold/Safety Trigger accessor keys&#34;&#34;&#34;
+    
+    def __init__(self, str=&#39;&#39;):
+        &#34;&#34;&#34;
+        Threshold/Safety Trigger decoder class 
+
+        Parameters
+        ----------
+        str : string
+            The value result of a call to `boltwood.Boltwood.getOCThresholds()`
+
+        See Also
+        --------
+        Boltwood.getOCThresholds()
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, Thresholds
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; rc, raw_values = bcs.getOCThresholds()
+        &gt;&gt;&gt; values = Thresholds(raw_values)
+        &gt;&gt;&gt; values.threshValue[Thresholds.CLEAR_CLOUDY] # Threshold value
+        -10
+        &gt;&gt;&gt; values.roofTrig[Thresholds.CLEAR_CLOUDY] # Active as safety trigger
+        0
+        &gt;&gt;&gt; values[Thresholds.CLEAR_CLOUDY] # Tuple of threshold value &amp; safety trigger
+        (&#34;-10&#34;, 0)
+        &#34;&#34;&#34;
+        self._parse(str)
+
+    def _parse(self, str):
+        if not str: return
+        arr = str.split(&#34; &#34;)
+        for i in range(0, len(self.keys)):
+            self.threshValue[self.keys[i]] = arr[i]
+            self.roofTrig[self.keys[i]] = arr[i + len(self.keys)]
+                               
+    def to_string(self):
+        &#34;&#34;&#34;
+        Encodes values stored in this class instance into a string for transmission via boltwood.Boltwood.setOCThresholds()
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, Thresholds
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;) 
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; # Fetch existing thresholds first
+        &gt;&gt;&gt; rc, raw_thresholds = bcs.getOCThresholds() 
+        &gt;&gt;&gt; # Parse the result
+        &gt;&gt;&gt; thresholds = Thresholds(raw_thresholds) 
+        &gt;&gt;&gt; # Add Thresholds.CLEAR_CLOUDY to list of active safety triggers
+        &gt;&gt;&gt; thresholds.roofTrig[Thresholds.CLEAR_CLOUDY] = 1 
+        &gt;&gt;&gt; # Send updated threshold structure to Boltwood, expect: (True, &#34;&#34;)
+        &gt;&gt;&gt; bcs.setOCThresholds(thresholds.to_string())
+        (True, &#34;&#34;)
+
+        Returns
+        -------
+        encoded_str : string
+            The Threshold/Safety Trigger values stored in proper order for transmission to a BCSIII device over a serial connection
+        &#34;&#34;&#34;
+        tmp = []
+        for key in self.keys:
+            tmp.append(&#34;{}&#34;.format(self.threshValue[key]))
+        for key in self.keys:
+            tmp.append(&#34;{}&#34;.format(self.roofTrig[key]))
+        return &#39; &#39;.join(tmp)
+    
+    def __getitem__(self, key):
+        &#34;&#34;&#34;
+        Accessor for Thresholds/Safety Trigger entries
+
+        Looks up a stored Threshold/Safety Trigger value by access key and returns it as a tuple
+
+        Parameters
+        ----------
+        key : string
+            Thresholds/Safety Trigger ccess key, or raw string representing the threshold to be accessed
+
+        Returns
+        -------
+        threshold : string
+            string-encoded value of the Thresholds
+
+        safety_trigger : string
+            string-encoded value of whether the Safety Trigger is active for the provided key (&#39;1&#39; for active, &#39;0&#39; for inactive)    
+        &#34;&#34;&#34;
+        return (self.threshValue[key], self.roofTrig[key])
+        
+class Boltwood:
+    _ser = serial.Serial()
+    &#34;&#34;&#34;Serial connection manager [Internal only]&#34;&#34;&#34;
+
+    port = &#39;/dev/ttyUSB0&#39;
+    &#34;&#34;&#34;Serial port name, must be set before calling Boltwood.open()&#34;&#34;&#34;
+
+    _dbg = False
+    &#34;&#34;&#34;Internal use only&#34;&#34;&#34;
+
+    def __init__(self, port):
+        &#34;&#34;&#34;
+        Class constructor for the Boltwood Cloud Sensor III python serial API
+
+        Parameters
+        ----------
+        port : string
+            Valid serial port hosting a Boltwood Cloud Sensor III
+        &#34;&#34;&#34;
+        self.port = port
+
+    def debug(self, val):
+        &#34;&#34;&#34;
+        Reserved for factory use
+        &#34;&#34;&#34;
+        self._dbg = val
+    
+    def __del__(self):
+        if self._ser.is_open:
+            self._ser.close()
+
+    def open(self):
+        &#34;&#34;&#34;
+        Opens a connection to the serial port provided in Boltwood class constructor.
+
+        e.g.
+
+        ```python
+        from pyboltwood import Boltwood
+
+        bcs = Boltwood(&#34;COM1&#34;)                          # for Windows machines
+        bcs = Boltwood(&#34;/dev/ttyUSB0&#34;)                  # for Linux machines
+        bcs = Boltwood(&#34;/dev/tty.usbserial-FTG6RCEJ&#34;)   # for MacOS machines
+
+        bcs.open()
+
+        # ... Do stuff with bcs ...
+        ```
+        &#34;&#34;&#34;
+        if self._ser.is_open:
+            return
+
+        if self._dbg: print(&#34;Connecting to BCSIII&#34;)            
+        self._ser.port = self.port
+        self._ser.baudrate = 9600
+        self._ser.bytesize = serial.EIGHTBITS
+        self._ser.parity = serial.PARITY_NONE
+        self._ser.stopbits = serial.STOPBITS_ONE
+        self._ser.timeout = 2
+        self._ser.rtscts = False
+
+        self._ser.rts = False
+        self._ser.dtr = True
+        self._ser.open()
+        self._ser.rts = False
+
+        if not self._dbg:
+            return
+
+    def close(self):
+        &#34;&#34;&#34;
+        Closes an open serial connection. Executed automatically by Boltwood class destructor.
+        &#34;&#34;&#34;
+        self._ser.close()
+    
+    def scan():
+        &#34;&#34;&#34;
+        Lists all available serial ports on the host OS
+
+        Returns
+        -------
+        ports : list
+            An array of serial port designators
+
+        Examples
+        --------
+        Windows
+
+        &gt;&gt;&gt; from pyboltwood import Boltwood
+        &gt;&gt;&gt; Boltwood.scan()
+        [ &#34;COM1&#34;, &#34;COM3&#34; ]
+        
+        Linux
+        
+        &gt;&gt;&gt; Boltwood.scan()
+        [ &#34;/dev/ttyUSB0&#34; ]
+
+        MacOS
+
+        &gt;&gt;&gt; Boltwood.scan()
+        [ &#34;/dev/tty.usbserial-FT123456&#34; ]
+
+        &#34;&#34;&#34;
+        ports = serial_ports.comports()
+        results = []
+        for port in ports:
+            results.append(port[0])
+        return results
+
+    def _exec(self, verb, key, param, val=&#39;&#39;):
+        if not self._ser.is_open:
+            self.open()
+
+        self._ser.reset_output_buffer()
+        self._ser.reset_input_buffer()
+
+        # construct the command
+        dout = &#34;{} {} {}&#34;.format(verb, key, param)
+        if (val):
+            dout = &#34;{} {}&#34;.format(dout, val)
+        dout = dout + &#39;\n&#39;
+
+        if self._dbg: print(&#39;out: {}&#39;.format(dout[0:-1]))        
+        self._ser.write(dout.encode())
+        din = self._ser.readline().decode()
+        if self._dbg: print(&#39;in : {}&#39;.format(din[0:-1]))
+        if din[0] != &#39;1&#39; and din[0] != &#39;0&#39; and din[0] != &#39;2&#39;:
+            raise RuntimeError(&#39;Invalid response from BCSIII&#39;)
+                  
+        return din[0] == &#39;0&#39;, din[2:-1]
+
+    def get(self, key, param):
+        &#34;&#34;&#34;
+        General-use interface accessor for readable properties      
+
+        Parameters
+        ----------
+        key : string
+            An interface shorthand key to access. e.g. &#34;dd&#34; for Device Descriptors
+            
+        param : string
+            Parameter key to retrieve. e.g. &#34;sta_ssid&#34;
+
+        Returns
+        -------
+        rc : bool
+            False if successful, True otherwise
+        
+        val : string
+            string-encoded requested value if successful, error message otherwise
+
+        See Also
+        --------
+        Interfaces
+        ObservingConditions
+        SafetyMonitor
+        DeviceDescriptor
+        EngineeringData
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.get(Interfaces.OC, ObservingConditions.TEMPERATURE)
+        (True, &#34;-12.0&#34;)
+        &#34;&#34;&#34;
+        return self._exec(&#39;g&#39;, key, param)
+
+    def getOC(self, param):
+        &#34;&#34;&#34;
+        Retrieve readable Observing Conditions interface values and threshold/safety trigger structure 
+
+        Parameters
+        ----------
+        param : string
+            Observing Conditions access key to read. e.g. ObservingConditions.TEMPERATURE
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        status : string
+            Device&#39;s current Observing Conditions interface readings
+
+        See Also
+        --------
+        ObservingConditions
+        &#34;&#34;&#34;
+        return self.get(&#39;oc&#39;, param)
+
+    def getSM(self, param):
+        &#34;&#34;&#34;
+        Retrieve readable Safety Monitor interface values 
+        
+        Parameters
+        ----------
+        param : string
+            Safety Monitor access key to retrieve. e.g. SafetyMonitor.IS_SAFE
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        status : string
+            Device&#39;s current Safety Monitor interface readings
+        
+        See Also
+        --------
+        SafetyMonitor
+        &#34;&#34;&#34;
+        return self.get(&#39;sm&#39;, param)
+
+    def getDD(self, param):
+        &#34;&#34;&#34;
+        Retrieve readable Device Descriptor interface values
+
+        Parameters
+        ----------
+        self : Boltwood
+            Reference to a connected Boltwood object
+        
+        param : string
+            Device Descriptor access key to set. e.g. DeviceDescriptor.STA_SSID
+
+        val : string
+            Value to set. e.g. &#34;MyWiFiSSID&#34;
+
+        Returns
+        -------
+        rc : bool
+            0 if successful, 1 otherwise
+        
+        val : string
+            empty if successful, error message otherwise
+
+        See Also
+        --------
+        DeviceDescriptor
+        &#34;&#34;&#34;
+        return self.get(&#39;dd&#39;, param)
+
+    def getEN(self, param=&#39;all&#39;):
+        &#34;&#34;&#34;
+        Retrieve readable Enineering Data interface properties
+
+        Parameters
+        ----------
+        self : Boltwood
+            Reference to a connected Boltwood object
+        
+        param : string
+            EngineeringData access key to set. e.g. EngineeringData.STA_SSID
+
+        val : string
+            Value to set
+
+        Returns
+        -------
+        rc : bool
+            0 if successful, 1 otherwise
+        
+        val : string
+            empty if successful, error message otherwise
+
+        See Also
+        --------
+        EngineeringData
+        &#34;&#34;&#34;
+        return self.get(&#39;en&#39;, param)
+
+    def put(self, key, param, val):
+        &#34;&#34;&#34;
+        General-use interface accessor for writable properties
+
+        Parameters
+        ----------
+        key : string
+            An interface shorthand key to access. e.g. &#34;dd&#34; for Device Descriptors
+            
+        param : string
+            Parameter key to set. e.g. &#34;sta_ssid&#34;
+
+        val : string
+            Value to set
+
+        Returns
+        -------
+        rc : bool
+            0 if successful, 1 otherwise
+        
+        val : string
+            empty if successful, error message otherwise
+
+        See Also
+        --------
+        Interfaces
+        ObservingConditions
+        SafetyMonitor
+        DeviceDescriptor
+        EngineeringData
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; bcs.put(Interfaces.DD, DeviceDescriptor.STA_SSID, &#34;MyWiFiSSID&#34;)
+        (True, &#34;&#34;)
+        &gt;&gt;&gt; bcs.put(Interfaces.OC, ObservingConditions.TEMPERATURE, 23)
+        (False, &#34;Invalid argument: property &#39;temperature&#39; is read-only&#34;)
+        &#34;&#34;&#34;
+        return self._exec(&#39;p&#39;, key, param, val)
+
+    def putDD(self, param, val):
+        &#34;&#34;&#34;
+        Set writable Device Descriptor values
+
+        This method can be used to set writable device descriptor values such as:
+        - sta_ssid
+        - sta_pass
+
+        Parameters
+        ----------
+        self : Boltwood
+            Reference to a connected Boltwood object
+        
+        param : string
+            Parameter key to set. e.g. &#34;sta_ssid&#34;
+
+        val : string
+            Value to set
+
+        Returns
+        -------
+        rc : bool
+            0 if successful, 1 otherwise
+        
+        val : string
+            empty if successful, error message otherwise
+        &#34;&#34;&#34;
+        return self.put(&#39;dd&#39;, param, val)
+
+    def putOC(self, param, val):
+        &#34;&#34;&#34;
+        Set writable Observing Conditions values
+
+        This method can be used to set writable observing condition values such as:
+        - refresh
+        - thresholds (see also: Boltwood.setOCThresholds())
+
+        Parameters
+        ----------
+        self : Boltwood
+            Reference to a connected Boltwood object
+        
+        param : string
+            Parameter key to set. e.g. &#34;thresholds&#34;
+
+        val : string
+            Value to set
+
+        Returns
+        -------
+        rc : bool
+            0 if successful, 1 otherwise
+        
+        val : string
+            empty if successful, error message otherwise
+        &#34;&#34;&#34;
+        return self.put(&#39;oc&#39;, param, val)
+
+    def getSerial(self):
+        &#34;&#34;&#34;
+        Retrieve Serial Number
+
+        Fetches the device&#39;s factory-programmed serial number.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        serial : string
+            Device&#39;s factory programmed serial number. e.g. &#34;BCS3S24010203&#34;
+        &#34;&#34;&#34;                       
+        return self.getDD(&#39;serial&#39;)
+
+    def getFWRev(self):
+        &#34;&#34;&#34;
+        Retrieve Firmware Revision Number
+
+        Fetches the device&#39;s firmware revision number. Requires firmware revision 12 or greater.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        revision : string
+            Device&#39;s firmware revision number. e.g. &#34;rev12&#34;
+        &#34;&#34;&#34;
+        return self.getDD(&#39;fwrev&#39;)
+
+    def getSTAIP(self):
+        &#34;&#34;&#34;
+        Retrieve DHCP-assigned WiFi Station IP Address
+
+        Fetches the device&#39;s DHCP-assigned IP if connected to the programmed WiFi Station.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        ip : string
+            Device&#39;s DHCP-assigned Station IP if the device is connected to a WiFi station, empty string if not.
+        &#34;&#34;&#34;
+        return self.getDD(&#39;sta_ip&#39;)
+
+    def getSTASSID(self):
+        &#34;&#34;&#34;
+        Retrieve Wireless Station SSID
+
+        Fetches the device&#39;s programmed user-submitted wireless Station SSID.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        ssid : string
+            Device&#39;s programmed WiFi Station SSID if rc is True, garbage otherwise
+        &#34;&#34;&#34;
+        return self.getDD(&#39;sta_ssid&#39;)
+
+    def getAPSSID(self):
+        &#34;&#34;&#34;
+        Retrieve Wireless Access Point SSID
+
+        Fetches the device&#39;s unique wireless Accesss Point SSID.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        ssid : string
+            Device&#39;s factory-set Access Point SSID if rc is True, garbage otherwise
+        &#34;&#34;&#34;
+        return self.getDD(&#39;ap_ssid&#39;)
+    
+    def getOCAll(self):
+        &#34;&#34;&#34;
+        Retrieve Observing Conditions amalgamator 
+
+        Shorthand for `Boltwood.getOC(&#39;all&#39;)`
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        status : string
+            Device&#39;s current Observing Conditions interface readings
+
+        See Also
+        --------
+        ObservingConditions
+        Boltwood.getOC()
+        &#34;&#34;&#34;
+        return self.getOC(&#39;all&#39;)
+
+    def getSMAll(self):
+        &#34;&#34;&#34;
+        Retrieve Safety Monitor amalgamator 
+
+        Fetches all Safety Monitor interface parameters:
+        A string-delimited list of all supported parameters as defined in the ASCOM Safety Monitor device interface.
+        Currently:
+         
+        isSafe: 
+            1 if device detects no configured safety condition failures. 0 otherwise.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        status : string
+            Device&#39;s current Safety Monitor interface readings
+
+        See Also
+        --------
+        SafetyMonitor
+        Boltwood.getSM()
+        &#34;&#34;&#34;
+        return self.getSM(&#39;all&#39;)
+
+    def getENAll(self):
+        &#34;&#34;&#34;
+        Retrieve Engineering Data amalgamator.
+
+        Shorthand for `Boltwood.getEN(&#39;all&#39;)`.
+        
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        status : string
+            Device&#39;s current Engineering Data interface readings
+
+        See Also
+        --------
+        EngineeringData
+        Boltwood.getEN()
+        &#34;&#34;&#34;
+        return self.getEN(&#39;all&#39;)
+    
+    def getOCThresholds(self):
+        &#34;&#34;&#34;
+        Retrieve user-programmed safety thresholds and trigger structure
+
+        Shorthand for `Boltwood.getOC(&#39;thresholds&#39;)`
+
+        Fetches a space-delimited list of internal safety thresholds and whether they&#39;re used in the roof trigger.
+        The thesholds are listed in the following order as floats, then again as booleans (0 for off, 1 for on) 
+        when those thresholds are used to denote a safety exception.
+
+        See Also
+        --------
+        Thresholds
+        Boltwood.getOC()
+        &#34;&#34;&#34;
+        return self.getOC(&#39;thresholds&#39;)
+
+    def setOCThresholds(self, val):
+        &#34;&#34;&#34;
+        Set user-programmed safety thresholds and trigger structure
+        
+        Sets a space-delimited list of internal safety thresholds and whether they&#39;re used in the roof trigger.
+        The thesholds are listed in the following order as floats, then again as booleans (0 for off, 1 for on) 
+        when those thresholds are used to denote a safety exception.
+
+        boltwood.Thresholds has been provided as a convenience wrapper to encode and decode this list in a programmatic way:
+
+        See Also
+        --------
+        Thresholds
+        Boltwood.putOC()
+        &#34;&#34;&#34;
+        return self.putOC(&#39;thresholds&#39;, val)
+
+Boltwood.scan = staticmethod(Boltwood.scan)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="cloudsensor.Boltwood"><code class="flex name class">
+<span>class <span class="ident">Boltwood</span></span>
+<span>(</span><span>port)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class constructor for the Boltwood Cloud Sensor III python serial API</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>port</code></strong> :&ensp;<code>string</code></dt>
+<dd>Valid serial port hosting a Boltwood Cloud Sensor III</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Boltwood:
+    _ser = serial.Serial()
+    &#34;&#34;&#34;Serial connection manager [Internal only]&#34;&#34;&#34;
+
+    port = &#39;/dev/ttyUSB0&#39;
+    &#34;&#34;&#34;Serial port name, must be set before calling Boltwood.open()&#34;&#34;&#34;
+
+    _dbg = False
+    &#34;&#34;&#34;Internal use only&#34;&#34;&#34;
+
+    def __init__(self, port):
+        &#34;&#34;&#34;
+        Class constructor for the Boltwood Cloud Sensor III python serial API
+
+        Parameters
+        ----------
+        port : string
+            Valid serial port hosting a Boltwood Cloud Sensor III
+        &#34;&#34;&#34;
+        self.port = port
+
+    def debug(self, val):
+        &#34;&#34;&#34;
+        Reserved for factory use
+        &#34;&#34;&#34;
+        self._dbg = val
+    
+    def __del__(self):
+        if self._ser.is_open:
+            self._ser.close()
+
+    def open(self):
+        &#34;&#34;&#34;
+        Opens a connection to the serial port provided in Boltwood class constructor.
+
+        e.g.
+
+        ```python
+        from pyboltwood import Boltwood
+
+        bcs = Boltwood(&#34;COM1&#34;)                          # for Windows machines
+        bcs = Boltwood(&#34;/dev/ttyUSB0&#34;)                  # for Linux machines
+        bcs = Boltwood(&#34;/dev/tty.usbserial-FTG6RCEJ&#34;)   # for MacOS machines
+
+        bcs.open()
+
+        # ... Do stuff with bcs ...
+        ```
+        &#34;&#34;&#34;
+        if self._ser.is_open:
+            return
+
+        if self._dbg: print(&#34;Connecting to BCSIII&#34;)            
+        self._ser.port = self.port
+        self._ser.baudrate = 9600
+        self._ser.bytesize = serial.EIGHTBITS
+        self._ser.parity = serial.PARITY_NONE
+        self._ser.stopbits = serial.STOPBITS_ONE
+        self._ser.timeout = 2
+        self._ser.rtscts = False
+
+        self._ser.rts = False
+        self._ser.dtr = True
+        self._ser.open()
+        self._ser.rts = False
+
+        if not self._dbg:
+            return
+
+    def close(self):
+        &#34;&#34;&#34;
+        Closes an open serial connection. Executed automatically by Boltwood class destructor.
+        &#34;&#34;&#34;
+        self._ser.close()
+    
+    def scan():
+        &#34;&#34;&#34;
+        Lists all available serial ports on the host OS
+
+        Returns
+        -------
+        ports : list
+            An array of serial port designators
+
+        Examples
+        --------
+        Windows
+
+        &gt;&gt;&gt; from pyboltwood import Boltwood
+        &gt;&gt;&gt; Boltwood.scan()
+        [ &#34;COM1&#34;, &#34;COM3&#34; ]
+        
+        Linux
+        
+        &gt;&gt;&gt; Boltwood.scan()
+        [ &#34;/dev/ttyUSB0&#34; ]
+
+        MacOS
+
+        &gt;&gt;&gt; Boltwood.scan()
+        [ &#34;/dev/tty.usbserial-FT123456&#34; ]
+
+        &#34;&#34;&#34;
+        ports = serial_ports.comports()
+        results = []
+        for port in ports:
+            results.append(port[0])
+        return results
+
+    def _exec(self, verb, key, param, val=&#39;&#39;):
+        if not self._ser.is_open:
+            self.open()
+
+        self._ser.reset_output_buffer()
+        self._ser.reset_input_buffer()
+
+        # construct the command
+        dout = &#34;{} {} {}&#34;.format(verb, key, param)
+        if (val):
+            dout = &#34;{} {}&#34;.format(dout, val)
+        dout = dout + &#39;\n&#39;
+
+        if self._dbg: print(&#39;out: {}&#39;.format(dout[0:-1]))        
+        self._ser.write(dout.encode())
+        din = self._ser.readline().decode()
+        if self._dbg: print(&#39;in : {}&#39;.format(din[0:-1]))
+        if din[0] != &#39;1&#39; and din[0] != &#39;0&#39; and din[0] != &#39;2&#39;:
+            raise RuntimeError(&#39;Invalid response from BCSIII&#39;)
+                  
+        return din[0] == &#39;0&#39;, din[2:-1]
+
+    def get(self, key, param):
+        &#34;&#34;&#34;
+        General-use interface accessor for readable properties      
+
+        Parameters
+        ----------
+        key : string
+            An interface shorthand key to access. e.g. &#34;dd&#34; for Device Descriptors
+            
+        param : string
+            Parameter key to retrieve. e.g. &#34;sta_ssid&#34;
+
+        Returns
+        -------
+        rc : bool
+            False if successful, True otherwise
+        
+        val : string
+            string-encoded requested value if successful, error message otherwise
+
+        See Also
+        --------
+        Interfaces
+        ObservingConditions
+        SafetyMonitor
+        DeviceDescriptor
+        EngineeringData
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.get(Interfaces.OC, ObservingConditions.TEMPERATURE)
+        (True, &#34;-12.0&#34;)
+        &#34;&#34;&#34;
+        return self._exec(&#39;g&#39;, key, param)
+
+    def getOC(self, param):
+        &#34;&#34;&#34;
+        Retrieve readable Observing Conditions interface values and threshold/safety trigger structure 
+
+        Parameters
+        ----------
+        param : string
+            Observing Conditions access key to read. e.g. ObservingConditions.TEMPERATURE
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        status : string
+            Device&#39;s current Observing Conditions interface readings
+
+        See Also
+        --------
+        ObservingConditions
+        &#34;&#34;&#34;
+        return self.get(&#39;oc&#39;, param)
+
+    def getSM(self, param):
+        &#34;&#34;&#34;
+        Retrieve readable Safety Monitor interface values 
+        
+        Parameters
+        ----------
+        param : string
+            Safety Monitor access key to retrieve. e.g. SafetyMonitor.IS_SAFE
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        status : string
+            Device&#39;s current Safety Monitor interface readings
+        
+        See Also
+        --------
+        SafetyMonitor
+        &#34;&#34;&#34;
+        return self.get(&#39;sm&#39;, param)
+
+    def getDD(self, param):
+        &#34;&#34;&#34;
+        Retrieve readable Device Descriptor interface values
+
+        Parameters
+        ----------
+        self : Boltwood
+            Reference to a connected Boltwood object
+        
+        param : string
+            Device Descriptor access key to set. e.g. DeviceDescriptor.STA_SSID
+
+        val : string
+            Value to set. e.g. &#34;MyWiFiSSID&#34;
+
+        Returns
+        -------
+        rc : bool
+            0 if successful, 1 otherwise
+        
+        val : string
+            empty if successful, error message otherwise
+
+        See Also
+        --------
+        DeviceDescriptor
+        &#34;&#34;&#34;
+        return self.get(&#39;dd&#39;, param)
+
+    def getEN(self, param=&#39;all&#39;):
+        &#34;&#34;&#34;
+        Retrieve readable Enineering Data interface properties
+
+        Parameters
+        ----------
+        self : Boltwood
+            Reference to a connected Boltwood object
+        
+        param : string
+            EngineeringData access key to set. e.g. EngineeringData.STA_SSID
+
+        val : string
+            Value to set
+
+        Returns
+        -------
+        rc : bool
+            0 if successful, 1 otherwise
+        
+        val : string
+            empty if successful, error message otherwise
+
+        See Also
+        --------
+        EngineeringData
+        &#34;&#34;&#34;
+        return self.get(&#39;en&#39;, param)
+
+    def put(self, key, param, val):
+        &#34;&#34;&#34;
+        General-use interface accessor for writable properties
+
+        Parameters
+        ----------
+        key : string
+            An interface shorthand key to access. e.g. &#34;dd&#34; for Device Descriptors
+            
+        param : string
+            Parameter key to set. e.g. &#34;sta_ssid&#34;
+
+        val : string
+            Value to set
+
+        Returns
+        -------
+        rc : bool
+            0 if successful, 1 otherwise
+        
+        val : string
+            empty if successful, error message otherwise
+
+        See Also
+        --------
+        Interfaces
+        ObservingConditions
+        SafetyMonitor
+        DeviceDescriptor
+        EngineeringData
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; bcs.put(Interfaces.DD, DeviceDescriptor.STA_SSID, &#34;MyWiFiSSID&#34;)
+        (True, &#34;&#34;)
+        &gt;&gt;&gt; bcs.put(Interfaces.OC, ObservingConditions.TEMPERATURE, 23)
+        (False, &#34;Invalid argument: property &#39;temperature&#39; is read-only&#34;)
+        &#34;&#34;&#34;
+        return self._exec(&#39;p&#39;, key, param, val)
+
+    def putDD(self, param, val):
+        &#34;&#34;&#34;
+        Set writable Device Descriptor values
+
+        This method can be used to set writable device descriptor values such as:
+        - sta_ssid
+        - sta_pass
+
+        Parameters
+        ----------
+        self : Boltwood
+            Reference to a connected Boltwood object
+        
+        param : string
+            Parameter key to set. e.g. &#34;sta_ssid&#34;
+
+        val : string
+            Value to set
+
+        Returns
+        -------
+        rc : bool
+            0 if successful, 1 otherwise
+        
+        val : string
+            empty if successful, error message otherwise
+        &#34;&#34;&#34;
+        return self.put(&#39;dd&#39;, param, val)
+
+    def putOC(self, param, val):
+        &#34;&#34;&#34;
+        Set writable Observing Conditions values
+
+        This method can be used to set writable observing condition values such as:
+        - refresh
+        - thresholds (see also: Boltwood.setOCThresholds())
+
+        Parameters
+        ----------
+        self : Boltwood
+            Reference to a connected Boltwood object
+        
+        param : string
+            Parameter key to set. e.g. &#34;thresholds&#34;
+
+        val : string
+            Value to set
+
+        Returns
+        -------
+        rc : bool
+            0 if successful, 1 otherwise
+        
+        val : string
+            empty if successful, error message otherwise
+        &#34;&#34;&#34;
+        return self.put(&#39;oc&#39;, param, val)
+
+    def getSerial(self):
+        &#34;&#34;&#34;
+        Retrieve Serial Number
+
+        Fetches the device&#39;s factory-programmed serial number.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        serial : string
+            Device&#39;s factory programmed serial number. e.g. &#34;BCS3S24010203&#34;
+        &#34;&#34;&#34;                       
+        return self.getDD(&#39;serial&#39;)
+
+    def getFWRev(self):
+        &#34;&#34;&#34;
+        Retrieve Firmware Revision Number
+
+        Fetches the device&#39;s firmware revision number. Requires firmware revision 12 or greater.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        revision : string
+            Device&#39;s firmware revision number. e.g. &#34;rev12&#34;
+        &#34;&#34;&#34;
+        return self.getDD(&#39;fwrev&#39;)
+
+    def getSTAIP(self):
+        &#34;&#34;&#34;
+        Retrieve DHCP-assigned WiFi Station IP Address
+
+        Fetches the device&#39;s DHCP-assigned IP if connected to the programmed WiFi Station.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        ip : string
+            Device&#39;s DHCP-assigned Station IP if the device is connected to a WiFi station, empty string if not.
+        &#34;&#34;&#34;
+        return self.getDD(&#39;sta_ip&#39;)
+
+    def getSTASSID(self):
+        &#34;&#34;&#34;
+        Retrieve Wireless Station SSID
+
+        Fetches the device&#39;s programmed user-submitted wireless Station SSID.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        ssid : string
+            Device&#39;s programmed WiFi Station SSID if rc is True, garbage otherwise
+        &#34;&#34;&#34;
+        return self.getDD(&#39;sta_ssid&#39;)
+
+    def getAPSSID(self):
+        &#34;&#34;&#34;
+        Retrieve Wireless Access Point SSID
+
+        Fetches the device&#39;s unique wireless Accesss Point SSID.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        ssid : string
+            Device&#39;s factory-set Access Point SSID if rc is True, garbage otherwise
+        &#34;&#34;&#34;
+        return self.getDD(&#39;ap_ssid&#39;)
+    
+    def getOCAll(self):
+        &#34;&#34;&#34;
+        Retrieve Observing Conditions amalgamator 
+
+        Shorthand for `Boltwood.getOC(&#39;all&#39;)`
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        status : string
+            Device&#39;s current Observing Conditions interface readings
+
+        See Also
+        --------
+        ObservingConditions
+        Boltwood.getOC()
+        &#34;&#34;&#34;
+        return self.getOC(&#39;all&#39;)
+
+    def getSMAll(self):
+        &#34;&#34;&#34;
+        Retrieve Safety Monitor amalgamator 
+
+        Fetches all Safety Monitor interface parameters:
+        A string-delimited list of all supported parameters as defined in the ASCOM Safety Monitor device interface.
+        Currently:
+         
+        isSafe: 
+            1 if device detects no configured safety condition failures. 0 otherwise.
+
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        status : string
+            Device&#39;s current Safety Monitor interface readings
+
+        See Also
+        --------
+        SafetyMonitor
+        Boltwood.getSM()
+        &#34;&#34;&#34;
+        return self.getSM(&#39;all&#39;)
+
+    def getENAll(self):
+        &#34;&#34;&#34;
+        Retrieve Engineering Data amalgamator.
+
+        Shorthand for `Boltwood.getEN(&#39;all&#39;)`.
+        
+        Returns
+        -------
+        rc : bool
+            True if successful, False otherwise
+
+        status : string
+            Device&#39;s current Engineering Data interface readings
+
+        See Also
+        --------
+        EngineeringData
+        Boltwood.getEN()
+        &#34;&#34;&#34;
+        return self.getEN(&#39;all&#39;)
+    
+    def getOCThresholds(self):
+        &#34;&#34;&#34;
+        Retrieve user-programmed safety thresholds and trigger structure
+
+        Shorthand for `Boltwood.getOC(&#39;thresholds&#39;)`
+
+        Fetches a space-delimited list of internal safety thresholds and whether they&#39;re used in the roof trigger.
+        The thesholds are listed in the following order as floats, then again as booleans (0 for off, 1 for on) 
+        when those thresholds are used to denote a safety exception.
+
+        See Also
+        --------
+        Thresholds
+        Boltwood.getOC()
+        &#34;&#34;&#34;
+        return self.getOC(&#39;thresholds&#39;)
+
+    def setOCThresholds(self, val):
+        &#34;&#34;&#34;
+        Set user-programmed safety thresholds and trigger structure
+        
+        Sets a space-delimited list of internal safety thresholds and whether they&#39;re used in the roof trigger.
+        The thesholds are listed in the following order as floats, then again as booleans (0 for off, 1 for on) 
+        when those thresholds are used to denote a safety exception.
+
+        boltwood.Thresholds has been provided as a convenience wrapper to encode and decode this list in a programmatic way:
+
+        See Also
+        --------
+        Thresholds
+        Boltwood.putOC()
+        &#34;&#34;&#34;
+        return self.putOC(&#39;thresholds&#39;, val)</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="cloudsensor.Boltwood.port"><code class="name">var <span class="ident">port</span></code></dt>
+<dd>
+<div class="desc"><p>Serial port name, must be set before calling Boltwood.open()</p></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="cloudsensor.Boltwood.scan"><code class="name flex">
+<span>def <span class="ident">scan</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Lists all available serial ports on the host OS</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>ports</code></strong> :&ensp;<code>list</code></dt>
+<dd>An array of serial port designators</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<p>Windows</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood
+&gt;&gt;&gt; Boltwood.scan()
+[ &quot;COM1&quot;, &quot;COM3&quot; ]
+</code></pre>
+<p>Linux</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; Boltwood.scan()
+[ &quot;/dev/ttyUSB0&quot; ]
+</code></pre>
+<p>MacOS</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; Boltwood.scan()
+[ &quot;/dev/tty.usbserial-FT123456&quot; ]
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def scan():
+    &#34;&#34;&#34;
+    Lists all available serial ports on the host OS
+
+    Returns
+    -------
+    ports : list
+        An array of serial port designators
+
+    Examples
+    --------
+    Windows
+
+    &gt;&gt;&gt; from pyboltwood import Boltwood
+    &gt;&gt;&gt; Boltwood.scan()
+    [ &#34;COM1&#34;, &#34;COM3&#34; ]
+    
+    Linux
+    
+    &gt;&gt;&gt; Boltwood.scan()
+    [ &#34;/dev/ttyUSB0&#34; ]
+
+    MacOS
+
+    &gt;&gt;&gt; Boltwood.scan()
+    [ &#34;/dev/tty.usbserial-FT123456&#34; ]
+
+    &#34;&#34;&#34;
+    ports = serial_ports.comports()
+    results = []
+    for port in ports:
+        results.append(port[0])
+    return results</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="cloudsensor.Boltwood.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Closes an open serial connection. Executed automatically by Boltwood class destructor.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self):
+    &#34;&#34;&#34;
+    Closes an open serial connection. Executed automatically by Boltwood class destructor.
+    &#34;&#34;&#34;
+    self._ser.close()</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.debug"><code class="name flex">
+<span>def <span class="ident">debug</span></span>(<span>self, val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reserved for factory use</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def debug(self, val):
+    &#34;&#34;&#34;
+    Reserved for factory use
+    &#34;&#34;&#34;
+    self._dbg = val</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self, key, param)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>General-use interface accessor for readable properties
+</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>key</code></strong> :&ensp;<code>string</code></dt>
+<dd>An interface shorthand key to access. e.g. "dd" for Device Descriptors</dd>
+<dt><strong><code>param</code></strong> :&ensp;<code>string</code></dt>
+<dd>Parameter key to retrieve. e.g. "sta_ssid"</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>False if successful, True otherwise</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>string-encoded requested value if successful, error message otherwise</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.Interfaces" href="#cloudsensor.Interfaces">Interfaces</a></code>
+<code><a title="cloudsensor.ObservingConditions" href="#cloudsensor.ObservingConditions">ObservingConditions</a></code>
+<code><a title="cloudsensor.SafetyMonitor" href="#cloudsensor.SafetyMonitor">SafetyMonitor</a></code>
+<code><a title="cloudsensor.DeviceDescriptor" href="#cloudsensor.DeviceDescriptor">DeviceDescriptor</a></code>
+<code><a title="cloudsensor.EngineeringData" href="#cloudsensor.EngineeringData">EngineeringData</a></code></p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.get(Interfaces.OC, ObservingConditions.TEMPERATURE)
+(True, &quot;-12.0&quot;)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get(self, key, param):
+    &#34;&#34;&#34;
+    General-use interface accessor for readable properties      
+
+    Parameters
+    ----------
+    key : string
+        An interface shorthand key to access. e.g. &#34;dd&#34; for Device Descriptors
+        
+    param : string
+        Parameter key to retrieve. e.g. &#34;sta_ssid&#34;
+
+    Returns
+    -------
+    rc : bool
+        False if successful, True otherwise
+    
+    val : string
+        string-encoded requested value if successful, error message otherwise
+
+    See Also
+    --------
+    Interfaces
+    ObservingConditions
+    SafetyMonitor
+    DeviceDescriptor
+    EngineeringData
+
+    Examples
+    --------
+    &gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions
+    &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+    &gt;&gt;&gt; bcs.get(Interfaces.OC, ObservingConditions.TEMPERATURE)
+    (True, &#34;-12.0&#34;)
+    &#34;&#34;&#34;
+    return self._exec(&#39;g&#39;, key, param)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getAPSSID"><code class="name flex">
+<span>def <span class="ident">getAPSSID</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve Wireless Access Point SSID</p>
+<p>Fetches the device's unique wireless Accesss Point SSID.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True if successful, False otherwise</dd>
+<dt><strong><code>ssid</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device's factory-set Access Point SSID if rc is True, garbage otherwise</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAPSSID(self):
+    &#34;&#34;&#34;
+    Retrieve Wireless Access Point SSID
+
+    Fetches the device&#39;s unique wireless Accesss Point SSID.
+
+    Returns
+    -------
+    rc : bool
+        True if successful, False otherwise
+
+    ssid : string
+        Device&#39;s factory-set Access Point SSID if rc is True, garbage otherwise
+    &#34;&#34;&#34;
+    return self.getDD(&#39;ap_ssid&#39;)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getDD"><code class="name flex">
+<span>def <span class="ident">getDD</span></span>(<span>self, param)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve readable Device Descriptor interface values</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code><a title="cloudsensor.Boltwood" href="#cloudsensor.Boltwood">Boltwood</a></code></dt>
+<dd>Reference to a connected Boltwood object</dd>
+<dt><strong><code>param</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device Descriptor access key to set. e.g. DeviceDescriptor.STA_SSID</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>Value to set. e.g. "MyWiFiSSID"</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>0 if successful, 1 otherwise</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>empty if successful, error message otherwise</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.DeviceDescriptor" href="#cloudsensor.DeviceDescriptor">DeviceDescriptor</a></code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getDD(self, param):
+    &#34;&#34;&#34;
+    Retrieve readable Device Descriptor interface values
+
+    Parameters
+    ----------
+    self : Boltwood
+        Reference to a connected Boltwood object
+    
+    param : string
+        Device Descriptor access key to set. e.g. DeviceDescriptor.STA_SSID
+
+    val : string
+        Value to set. e.g. &#34;MyWiFiSSID&#34;
+
+    Returns
+    -------
+    rc : bool
+        0 if successful, 1 otherwise
+    
+    val : string
+        empty if successful, error message otherwise
+
+    See Also
+    --------
+    DeviceDescriptor
+    &#34;&#34;&#34;
+    return self.get(&#39;dd&#39;, param)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getEN"><code class="name flex">
+<span>def <span class="ident">getEN</span></span>(<span>self, param='all')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve readable Enineering Data interface properties</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code><a title="cloudsensor.Boltwood" href="#cloudsensor.Boltwood">Boltwood</a></code></dt>
+<dd>Reference to a connected Boltwood object</dd>
+<dt><strong><code>param</code></strong> :&ensp;<code>string</code></dt>
+<dd>EngineeringData access key to set. e.g. EngineeringData.STA_SSID</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>Value to set</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>0 if successful, 1 otherwise</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>empty if successful, error message otherwise</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.EngineeringData" href="#cloudsensor.EngineeringData">EngineeringData</a></code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getEN(self, param=&#39;all&#39;):
+    &#34;&#34;&#34;
+    Retrieve readable Enineering Data interface properties
+
+    Parameters
+    ----------
+    self : Boltwood
+        Reference to a connected Boltwood object
+    
+    param : string
+        EngineeringData access key to set. e.g. EngineeringData.STA_SSID
+
+    val : string
+        Value to set
+
+    Returns
+    -------
+    rc : bool
+        0 if successful, 1 otherwise
+    
+    val : string
+        empty if successful, error message otherwise
+
+    See Also
+    --------
+    EngineeringData
+    &#34;&#34;&#34;
+    return self.get(&#39;en&#39;, param)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getENAll"><code class="name flex">
+<span>def <span class="ident">getENAll</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve Engineering Data amalgamator.</p>
+<p>Shorthand for <code>Boltwood.getEN('all')</code>.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True if successful, False otherwise</dd>
+<dt><strong><code>status</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device's current Engineering Data interface readings</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.EngineeringData" href="#cloudsensor.EngineeringData">EngineeringData</a></code>
+<code><a title="cloudsensor.Boltwood.getEN" href="#cloudsensor.Boltwood.getEN">Boltwood.getEN()</a></code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getENAll(self):
+    &#34;&#34;&#34;
+    Retrieve Engineering Data amalgamator.
+
+    Shorthand for `Boltwood.getEN(&#39;all&#39;)`.
+    
+    Returns
+    -------
+    rc : bool
+        True if successful, False otherwise
+
+    status : string
+        Device&#39;s current Engineering Data interface readings
+
+    See Also
+    --------
+    EngineeringData
+    Boltwood.getEN()
+    &#34;&#34;&#34;
+    return self.getEN(&#39;all&#39;)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getFWRev"><code class="name flex">
+<span>def <span class="ident">getFWRev</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve Firmware Revision Number</p>
+<p>Fetches the device's firmware revision number. Requires firmware revision 12 or greater.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True if successful, False otherwise</dd>
+<dt><strong><code>revision</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device's firmware revision number. e.g. "rev12"</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getFWRev(self):
+    &#34;&#34;&#34;
+    Retrieve Firmware Revision Number
+
+    Fetches the device&#39;s firmware revision number. Requires firmware revision 12 or greater.
+
+    Returns
+    -------
+    rc : bool
+        True if successful, False otherwise
+
+    revision : string
+        Device&#39;s firmware revision number. e.g. &#34;rev12&#34;
+    &#34;&#34;&#34;
+    return self.getDD(&#39;fwrev&#39;)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getOC"><code class="name flex">
+<span>def <span class="ident">getOC</span></span>(<span>self, param)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve readable Observing Conditions interface values and threshold/safety trigger structure </p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>param</code></strong> :&ensp;<code>string</code></dt>
+<dd>Observing Conditions access key to read. e.g. ObservingConditions.TEMPERATURE</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True if successful, False otherwise</dd>
+<dt><strong><code>status</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device's current Observing Conditions interface readings</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.ObservingConditions" href="#cloudsensor.ObservingConditions">ObservingConditions</a></code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getOC(self, param):
+    &#34;&#34;&#34;
+    Retrieve readable Observing Conditions interface values and threshold/safety trigger structure 
+
+    Parameters
+    ----------
+    param : string
+        Observing Conditions access key to read. e.g. ObservingConditions.TEMPERATURE
+
+    Returns
+    -------
+    rc : bool
+        True if successful, False otherwise
+
+    status : string
+        Device&#39;s current Observing Conditions interface readings
+
+    See Also
+    --------
+    ObservingConditions
+    &#34;&#34;&#34;
+    return self.get(&#39;oc&#39;, param)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getOCAll"><code class="name flex">
+<span>def <span class="ident">getOCAll</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve Observing Conditions amalgamator </p>
+<p>Shorthand for <code>Boltwood.getOC('all')</code></p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True if successful, False otherwise</dd>
+<dt><strong><code>status</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device's current Observing Conditions interface readings</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.ObservingConditions" href="#cloudsensor.ObservingConditions">ObservingConditions</a></code>
+<code><a title="cloudsensor.Boltwood.getOC" href="#cloudsensor.Boltwood.getOC">Boltwood.getOC()</a></code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getOCAll(self):
+    &#34;&#34;&#34;
+    Retrieve Observing Conditions amalgamator 
+
+    Shorthand for `Boltwood.getOC(&#39;all&#39;)`
+
+    Returns
+    -------
+    rc : bool
+        True if successful, False otherwise
+
+    status : string
+        Device&#39;s current Observing Conditions interface readings
+
+    See Also
+    --------
+    ObservingConditions
+    Boltwood.getOC()
+    &#34;&#34;&#34;
+    return self.getOC(&#39;all&#39;)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getOCThresholds"><code class="name flex">
+<span>def <span class="ident">getOCThresholds</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve user-programmed safety thresholds and trigger structure</p>
+<p>Shorthand for <code>Boltwood.getOC('thresholds')</code></p>
+<p>Fetches a space-delimited list of internal safety thresholds and whether they're used in the roof trigger.
+The thesholds are listed in the following order as floats, then again as booleans (0 for off, 1 for on)
+when those thresholds are used to denote a safety exception.</p>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.Thresholds" href="#cloudsensor.Thresholds">Thresholds</a></code>
+<code><a title="cloudsensor.Boltwood.getOC" href="#cloudsensor.Boltwood.getOC">Boltwood.getOC()</a></code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getOCThresholds(self):
+    &#34;&#34;&#34;
+    Retrieve user-programmed safety thresholds and trigger structure
+
+    Shorthand for `Boltwood.getOC(&#39;thresholds&#39;)`
+
+    Fetches a space-delimited list of internal safety thresholds and whether they&#39;re used in the roof trigger.
+    The thesholds are listed in the following order as floats, then again as booleans (0 for off, 1 for on) 
+    when those thresholds are used to denote a safety exception.
+
+    See Also
+    --------
+    Thresholds
+    Boltwood.getOC()
+    &#34;&#34;&#34;
+    return self.getOC(&#39;thresholds&#39;)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getSM"><code class="name flex">
+<span>def <span class="ident">getSM</span></span>(<span>self, param)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve readable Safety Monitor interface values </p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>param</code></strong> :&ensp;<code>string</code></dt>
+<dd>Safety Monitor access key to retrieve. e.g. SafetyMonitor.IS_SAFE</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True if successful, False otherwise</dd>
+<dt><strong><code>status</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device's current Safety Monitor interface readings</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.SafetyMonitor" href="#cloudsensor.SafetyMonitor">SafetyMonitor</a></code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSM(self, param):
+    &#34;&#34;&#34;
+    Retrieve readable Safety Monitor interface values 
+    
+    Parameters
+    ----------
+    param : string
+        Safety Monitor access key to retrieve. e.g. SafetyMonitor.IS_SAFE
+
+    Returns
+    -------
+    rc : bool
+        True if successful, False otherwise
+
+    status : string
+        Device&#39;s current Safety Monitor interface readings
+    
+    See Also
+    --------
+    SafetyMonitor
+    &#34;&#34;&#34;
+    return self.get(&#39;sm&#39;, param)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getSMAll"><code class="name flex">
+<span>def <span class="ident">getSMAll</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve Safety Monitor amalgamator </p>
+<p>Fetches all Safety Monitor interface parameters:
+A string-delimited list of all supported parameters as defined in the ASCOM Safety Monitor device interface.
+Currently:</p>
+<p>isSafe:
+1 if device detects no configured safety condition failures. 0 otherwise.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True if successful, False otherwise</dd>
+<dt><strong><code>status</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device's current Safety Monitor interface readings</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.SafetyMonitor" href="#cloudsensor.SafetyMonitor">SafetyMonitor</a></code>
+<code><a title="cloudsensor.Boltwood.getSM" href="#cloudsensor.Boltwood.getSM">Boltwood.getSM()</a></code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSMAll(self):
+    &#34;&#34;&#34;
+    Retrieve Safety Monitor amalgamator 
+
+    Fetches all Safety Monitor interface parameters:
+    A string-delimited list of all supported parameters as defined in the ASCOM Safety Monitor device interface.
+    Currently:
+     
+    isSafe: 
+        1 if device detects no configured safety condition failures. 0 otherwise.
+
+    Returns
+    -------
+    rc : bool
+        True if successful, False otherwise
+
+    status : string
+        Device&#39;s current Safety Monitor interface readings
+
+    See Also
+    --------
+    SafetyMonitor
+    Boltwood.getSM()
+    &#34;&#34;&#34;
+    return self.getSM(&#39;all&#39;)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getSTAIP"><code class="name flex">
+<span>def <span class="ident">getSTAIP</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve DHCP-assigned WiFi Station IP Address</p>
+<p>Fetches the device's DHCP-assigned IP if connected to the programmed WiFi Station.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True if successful, False otherwise</dd>
+<dt><strong><code>ip</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device's DHCP-assigned Station IP if the device is connected to a WiFi station, empty string if not.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSTAIP(self):
+    &#34;&#34;&#34;
+    Retrieve DHCP-assigned WiFi Station IP Address
+
+    Fetches the device&#39;s DHCP-assigned IP if connected to the programmed WiFi Station.
+
+    Returns
+    -------
+    rc : bool
+        True if successful, False otherwise
+
+    ip : string
+        Device&#39;s DHCP-assigned Station IP if the device is connected to a WiFi station, empty string if not.
+    &#34;&#34;&#34;
+    return self.getDD(&#39;sta_ip&#39;)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getSTASSID"><code class="name flex">
+<span>def <span class="ident">getSTASSID</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve Wireless Station SSID</p>
+<p>Fetches the device's programmed user-submitted wireless Station SSID.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True if successful, False otherwise</dd>
+<dt><strong><code>ssid</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device's programmed WiFi Station SSID if rc is True, garbage otherwise</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSTASSID(self):
+    &#34;&#34;&#34;
+    Retrieve Wireless Station SSID
+
+    Fetches the device&#39;s programmed user-submitted wireless Station SSID.
+
+    Returns
+    -------
+    rc : bool
+        True if successful, False otherwise
+
+    ssid : string
+        Device&#39;s programmed WiFi Station SSID if rc is True, garbage otherwise
+    &#34;&#34;&#34;
+    return self.getDD(&#39;sta_ssid&#39;)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.getSerial"><code class="name flex">
+<span>def <span class="ident">getSerial</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve Serial Number</p>
+<p>Fetches the device's factory-programmed serial number.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True if successful, False otherwise</dd>
+<dt><strong><code>serial</code></strong> :&ensp;<code>string</code></dt>
+<dd>Device's factory programmed serial number. e.g. "BCS3S24010203"</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSerial(self):
+    &#34;&#34;&#34;
+    Retrieve Serial Number
+
+    Fetches the device&#39;s factory-programmed serial number.
+
+    Returns
+    -------
+    rc : bool
+        True if successful, False otherwise
+
+    serial : string
+        Device&#39;s factory programmed serial number. e.g. &#34;BCS3S24010203&#34;
+    &#34;&#34;&#34;                       
+    return self.getDD(&#39;serial&#39;)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.open"><code class="name flex">
+<span>def <span class="ident">open</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Opens a connection to the serial port provided in Boltwood class constructor.</p>
+<p>e.g.</p>
+<pre><code class="language-python">from pyboltwood import Boltwood
+
+bcs = Boltwood(&quot;COM1&quot;)                          # for Windows machines
+bcs = Boltwood(&quot;/dev/ttyUSB0&quot;)                  # for Linux machines
+bcs = Boltwood(&quot;/dev/tty.usbserial-FTG6RCEJ&quot;)   # for MacOS machines
+
+bcs.open()
+
+# ... Do stuff with bcs ...
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def open(self):
+    &#34;&#34;&#34;
+    Opens a connection to the serial port provided in Boltwood class constructor.
+
+    e.g.
+
+    ```python
+    from pyboltwood import Boltwood
+
+    bcs = Boltwood(&#34;COM1&#34;)                          # for Windows machines
+    bcs = Boltwood(&#34;/dev/ttyUSB0&#34;)                  # for Linux machines
+    bcs = Boltwood(&#34;/dev/tty.usbserial-FTG6RCEJ&#34;)   # for MacOS machines
+
+    bcs.open()
+
+    # ... Do stuff with bcs ...
+    ```
+    &#34;&#34;&#34;
+    if self._ser.is_open:
+        return
+
+    if self._dbg: print(&#34;Connecting to BCSIII&#34;)            
+    self._ser.port = self.port
+    self._ser.baudrate = 9600
+    self._ser.bytesize = serial.EIGHTBITS
+    self._ser.parity = serial.PARITY_NONE
+    self._ser.stopbits = serial.STOPBITS_ONE
+    self._ser.timeout = 2
+    self._ser.rtscts = False
+
+    self._ser.rts = False
+    self._ser.dtr = True
+    self._ser.open()
+    self._ser.rts = False
+
+    if not self._dbg:
+        return</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.put"><code class="name flex">
+<span>def <span class="ident">put</span></span>(<span>self, key, param, val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>General-use interface accessor for writable properties</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>key</code></strong> :&ensp;<code>string</code></dt>
+<dd>An interface shorthand key to access. e.g. "dd" for Device Descriptors</dd>
+<dt><strong><code>param</code></strong> :&ensp;<code>string</code></dt>
+<dd>Parameter key to set. e.g. "sta_ssid"</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>Value to set</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>0 if successful, 1 otherwise</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>empty if successful, error message otherwise</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.Interfaces" href="#cloudsensor.Interfaces">Interfaces</a></code>
+<code><a title="cloudsensor.ObservingConditions" href="#cloudsensor.ObservingConditions">ObservingConditions</a></code>
+<code><a title="cloudsensor.SafetyMonitor" href="#cloudsensor.SafetyMonitor">SafetyMonitor</a></code>
+<code><a title="cloudsensor.DeviceDescriptor" href="#cloudsensor.DeviceDescriptor">DeviceDescriptor</a></code>
+<code><a title="cloudsensor.EngineeringData" href="#cloudsensor.EngineeringData">EngineeringData</a></code></p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; bcs.put(Interfaces.DD, DeviceDescriptor.STA_SSID, &quot;MyWiFiSSID&quot;)
+(True, &quot;&quot;)
+&gt;&gt;&gt; bcs.put(Interfaces.OC, ObservingConditions.TEMPERATURE, 23)
+(False, &quot;Invalid argument: property 'temperature' is read-only&quot;)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def put(self, key, param, val):
+    &#34;&#34;&#34;
+    General-use interface accessor for writable properties
+
+    Parameters
+    ----------
+    key : string
+        An interface shorthand key to access. e.g. &#34;dd&#34; for Device Descriptors
+        
+    param : string
+        Parameter key to set. e.g. &#34;sta_ssid&#34;
+
+    val : string
+        Value to set
+
+    Returns
+    -------
+    rc : bool
+        0 if successful, 1 otherwise
+    
+    val : string
+        empty if successful, error message otherwise
+
+    See Also
+    --------
+    Interfaces
+    ObservingConditions
+    SafetyMonitor
+    DeviceDescriptor
+    EngineeringData
+
+    Examples
+    --------
+    &gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions
+    &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+    &gt;&gt;&gt; bcs.open()
+    &gt;&gt;&gt; bcs.put(Interfaces.DD, DeviceDescriptor.STA_SSID, &#34;MyWiFiSSID&#34;)
+    (True, &#34;&#34;)
+    &gt;&gt;&gt; bcs.put(Interfaces.OC, ObservingConditions.TEMPERATURE, 23)
+    (False, &#34;Invalid argument: property &#39;temperature&#39; is read-only&#34;)
+    &#34;&#34;&#34;
+    return self._exec(&#39;p&#39;, key, param, val)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.putDD"><code class="name flex">
+<span>def <span class="ident">putDD</span></span>(<span>self, param, val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set writable Device Descriptor values</p>
+<p>This method can be used to set writable device descriptor values such as:
+- sta_ssid
+- sta_pass</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code><a title="cloudsensor.Boltwood" href="#cloudsensor.Boltwood">Boltwood</a></code></dt>
+<dd>Reference to a connected Boltwood object</dd>
+<dt><strong><code>param</code></strong> :&ensp;<code>string</code></dt>
+<dd>Parameter key to set. e.g. "sta_ssid"</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>Value to set</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>0 if successful, 1 otherwise</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>empty if successful, error message otherwise</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def putDD(self, param, val):
+    &#34;&#34;&#34;
+    Set writable Device Descriptor values
+
+    This method can be used to set writable device descriptor values such as:
+    - sta_ssid
+    - sta_pass
+
+    Parameters
+    ----------
+    self : Boltwood
+        Reference to a connected Boltwood object
+    
+    param : string
+        Parameter key to set. e.g. &#34;sta_ssid&#34;
+
+    val : string
+        Value to set
+
+    Returns
+    -------
+    rc : bool
+        0 if successful, 1 otherwise
+    
+    val : string
+        empty if successful, error message otherwise
+    &#34;&#34;&#34;
+    return self.put(&#39;dd&#39;, param, val)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.putOC"><code class="name flex">
+<span>def <span class="ident">putOC</span></span>(<span>self, param, val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set writable Observing Conditions values</p>
+<p>This method can be used to set writable observing condition values such as:
+- refresh
+- thresholds (see also: Boltwood.setOCThresholds())</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>self</code></strong> :&ensp;<code><a title="cloudsensor.Boltwood" href="#cloudsensor.Boltwood">Boltwood</a></code></dt>
+<dd>Reference to a connected Boltwood object</dd>
+<dt><strong><code>param</code></strong> :&ensp;<code>string</code></dt>
+<dd>Parameter key to set. e.g. "thresholds"</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>Value to set</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>0 if successful, 1 otherwise</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>string</code></dt>
+<dd>empty if successful, error message otherwise</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def putOC(self, param, val):
+    &#34;&#34;&#34;
+    Set writable Observing Conditions values
+
+    This method can be used to set writable observing condition values such as:
+    - refresh
+    - thresholds (see also: Boltwood.setOCThresholds())
+
+    Parameters
+    ----------
+    self : Boltwood
+        Reference to a connected Boltwood object
+    
+    param : string
+        Parameter key to set. e.g. &#34;thresholds&#34;
+
+    val : string
+        Value to set
+
+    Returns
+    -------
+    rc : bool
+        0 if successful, 1 otherwise
+    
+    val : string
+        empty if successful, error message otherwise
+    &#34;&#34;&#34;
+    return self.put(&#39;oc&#39;, param, val)</code></pre>
+</details>
+</dd>
+<dt id="cloudsensor.Boltwood.setOCThresholds"><code class="name flex">
+<span>def <span class="ident">setOCThresholds</span></span>(<span>self, val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set user-programmed safety thresholds and trigger structure</p>
+<p>Sets a space-delimited list of internal safety thresholds and whether they're used in the roof trigger.
+The thesholds are listed in the following order as floats, then again as booleans (0 for off, 1 for on)
+when those thresholds are used to denote a safety exception.</p>
+<p>boltwood.Thresholds has been provided as a convenience wrapper to encode and decode this list in a programmatic way:</p>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.Thresholds" href="#cloudsensor.Thresholds">Thresholds</a></code>
+<code><a title="cloudsensor.Boltwood.putOC" href="#cloudsensor.Boltwood.putOC">Boltwood.putOC()</a></code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setOCThresholds(self, val):
+    &#34;&#34;&#34;
+    Set user-programmed safety thresholds and trigger structure
+    
+    Sets a space-delimited list of internal safety thresholds and whether they&#39;re used in the roof trigger.
+    The thesholds are listed in the following order as floats, then again as booleans (0 for off, 1 for on) 
+    when those thresholds are used to denote a safety exception.
+
+    boltwood.Thresholds has been provided as a convenience wrapper to encode and decode this list in a programmatic way:
+
+    See Also
+    --------
+    Thresholds
+    Boltwood.putOC()
+    &#34;&#34;&#34;
+    return self.putOC(&#39;thresholds&#39;, val)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="cloudsensor.DeviceDescriptor"><code class="flex name class">
+<span>class <span class="ident">DeviceDescriptor</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A list of access keys when accessing data via <code><a title="cloudsensor.Boltwood.getDD" href="#cloudsensor.Boltwood.getDD">Boltwood.getDD()</a></code> or <code><a title="cloudsensor.Boltwood.putDD" href="#cloudsensor.Boltwood.putDD">Boltwood.putDD()</a></code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DeviceDescriptor:
+    &#34;&#34;&#34;
+    A list of access keys when accessing data via `Boltwood.getDD()` or `Boltwood.putDD()`
+    &#34;&#34;&#34;
+
+    SERIAL = &#39;serial&#39;
+    &#34;&#34;&#34;Access key for the device&#39;s unique serial number (read-only)&#34;&#34;&#34;
+
+    FW_REVISION = &#34;fwrev&#34;
+    &#34;&#34;&#34;Access key for the device&#39;s firmware revision number (read-only)&#34;&#34;&#34;
+
+    STA_IP = &#34;sta_ip&#34;
+    &#34;&#34;&#34;Access key for the device&#39;s WiFi Station DHCP-assigned IP address (read-only)&#34;&#34;&#34;
+
+    STA_SSID = &#34;sta_ssid&#34;
+    &#34;&#34;&#34;Access key for the device&#39;s WiFi Station SSID (network name)&#34;&#34;&#34;
+
+    STA_PASS = &#34;sta_pass&#34;
+    &#34;&#34;&#34;Access key for the device&#39;s WiFi Station passphrase (write-only)&#34;&#34;&#34;
+
+    AP_SSID = &#34;ap_ssid&#34;
+    &#34;&#34;&#34;Access key for the device&#39;s factory-assigned WiFi Access Point SSID (read-only)&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="cloudsensor.DeviceDescriptor.AP_SSID"><code class="name">var <span class="ident">AP_SSID</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the device's factory-assigned WiFi Access Point SSID (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.DeviceDescriptor.FW_REVISION"><code class="name">var <span class="ident">FW_REVISION</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the device's firmware revision number (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.DeviceDescriptor.SERIAL"><code class="name">var <span class="ident">SERIAL</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the device's unique serial number (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.DeviceDescriptor.STA_IP"><code class="name">var <span class="ident">STA_IP</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the device's WiFi Station DHCP-assigned IP address (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.DeviceDescriptor.STA_PASS"><code class="name">var <span class="ident">STA_PASS</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the device's WiFi Station passphrase (write-only)</p></div>
+</dd>
+<dt id="cloudsensor.DeviceDescriptor.STA_SSID"><code class="name">var <span class="ident">STA_SSID</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the device's WiFi Station SSID (network name)</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="cloudsensor.EngineeringData"><code class="flex name class">
+<span>class <span class="ident">EngineeringData</span></span>
+<span>(</span><span>str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Engineering Data string decoder</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>str</code></strong> :&ensp;<code>string</code></dt>
+<dd>Value portion of a <code><a title="cloudsensor.Boltwood.getENAll" href="#cloudsensor.Boltwood.getENAll">Boltwood.getENAll()</a></code> call</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; rc, raw_values = bcs.getOCAll()
+&gt;&gt;&gt; values = EngineeringData(raw_values)
+&gt;&gt;&gt; print(f'{values[EngineeringData.HUMIDITY]}')
+( 50.0, 1 )
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EngineeringData:
+    WIND_COLD       = &#39;windColdSensor&#39; 
+    &#34;&#34;&#34;Access key for EngineeringData Windspeed sensor cold stock temperature measurement (read-only)&#34;&#34;&#34;
+
+    WIND_HOT        = &#39;windHotSensor&#39;  
+    &#34;&#34;&#34;Access key for EngineeringData Windspeed sensor hot stock temperature measurement (read-only)&#34;&#34;&#34;
+
+    WINDSPEED       = &#39;windSpeed&#39;      
+    &#34;&#34;&#34;Access key for EngineeringData Windspeed sensor measurement (read-only)&#34;&#34;&#34;
+
+    PRESSURE        = &#39;pressure&#39;       
+    &#34;&#34;&#34;Access key for EngineeringData Pressure sensor measurement (read-only)&#34;&#34;&#34;
+
+    PRESSURE_TEMP   = &#39;pressureTemp&#39;   
+    &#34;&#34;&#34;Access key for EngineeringData Pressure sensor temperature measurement (read-only)&#34;&#34;&#34;
+
+    AMBIENT_TEMP    = &#39;ambientTemp&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Ambient Temperature sensor temperature measurement (read-only)&#34;&#34;&#34;
+
+    VOLTAGE         = &#39;voltage&#39;        
+    &#34;&#34;&#34;Access key for EngineeringData Power Supply Voltage sensor measurement (read-only)&#34;&#34;&#34;
+
+    DAYLIGHT        = &#39;daylightSensor&#39; 
+    &#34;&#34;&#34;Access key for EngineeringData Daylight sensor measurement (read-only)&#34;&#34;&#34;
+
+    SKY_AMBIENT     = &#39;skyAmbientTemp&#39; 
+    &#34;&#34;&#34;Access key for EngineeringData Sky Temperature minus Ambient Temperature measurement (read-only)&#34;&#34;&#34;
+
+    SKY_TEMP        = &#39;skyTemp&#39;        
+    &#34;&#34;&#34;Access key for EngineeringData Sky Temperature sensor measurement (read-only)&#34;&#34;&#34;
+
+    CASE_TEMP       = &#39;caseTemp&#39;       
+    &#34;&#34;&#34;Access key for EngineeringData Case Temperature sensor measurement (read-only)&#34;&#34;&#34;
+
+    RAIN_RAW        = &#39;rainRaw&#39;        
+    &#34;&#34;&#34;Access key for EngineeringData Rain sensor&#39;s instantaneous raw drop sample (read-only)&#34;&#34;&#34;
+
+    RAIN_DPM        = &#39;rainDpm&#39;        
+    &#34;&#34;&#34;Access key for EngineeringData Rain sensor drops/minute measurement (read-only)&#34;&#34;&#34;
+
+    HUMIDITY        = &#39;humidity&#39;       
+    &#34;&#34;&#34;Access key for EngineeringData Humidity sensor measurement (read-only)&#34;&#34;&#34;
+
+    HUMIDITY_TEMP   = &#39;humidityTemp&#39;   
+    &#34;&#34;&#34;Access key for EngineeringData Humidity sensor onboard temperature measurement (read-only)&#34;&#34;&#34;
+
+    DEWPOINT        = &#39;dewpoint&#39;      
+    &#34;&#34;&#34;Access key for EngineeringData Dewpoint sensor calculated value (read-only)&#34;&#34;&#34;
+
+    COND_OVERCAST   = &#39;condOvercast&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Overcast condition state (read-only)&#34;&#34;&#34;
+
+    COND_WIND       = &#39;condWind&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Windy condition state (read-only)&#34;&#34;&#34;
+
+    COND_BRIGHTNESS = &#39;condBrightness&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Brightness condition state (read-only)&#34;&#34;&#34;
+
+    COND_PRECIP     = &#39;condPrecipitation&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Precipitation condition state (read-only)&#34;&#34;&#34;
+
+    COND_WEATHER    = &#39;condWeather&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Overall Weather condition state (read-only)&#34;&#34;&#34;
+
+    COND_HUMIDITY   = &#39;condHumidity&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Humidity condition state (read-only)&#34;&#34;&#34;
+
+    COND_PRESSURE   = &#39;condPressure&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Pressure condition state (read-only)&#34;&#34;&#34;
+
+    COND_VOLTAGE    = &#39;condVoltage&#39;
+    &#34;&#34;&#34;Access key for EngineeringData Voltage condition state (read-only)&#34;&#34;&#34;
+
+    def _format_lmh(self, val):
+        &#34;&#34;&#34;
+        Convenience function for formatting low/medium/high condition values
+        &#34;&#34;&#34;
+        if val == &#39;0&#39;: return &#34;low&#34;
+        if val == &#39;1&#39;: return &#34;med&#34;
+        if val == &#39;2&#39;: return &#34;high&#34;
+        return &#34;???&#34;
+
+    def _format_overcast(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting overcast condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_OVERCAST]
+        if val == &#39;0&#39;: return &#39;clear&#39;
+        if val == &#39;1&#39;: return &#39;cloudy&#39;
+        if val == &#39;2&#39;: return &#39;vcloudy&#39;
+        return &#39;???&#39;
+
+    def _format_wind(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting windy condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_WIND]
+        if val == &#39;0&#39;: return &#39;calm&#39;
+        if val == &#39;1&#39;: return &#39;windy&#39;
+        if val == &#39;2&#39;: return &#39;vwindy&#39;
+        return &#39;???&#39;
+
+    def _format_bright(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting brightness condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_BRIGHTNESS]
+        if val == &#39;0&#39;: return &#39;dark&#39;
+        if val == &#39;1&#39;: return &#39;light&#39;
+        if val == &#39;2&#39;: return &#39;vlight&#39;
+        return &#39;???&#39;
+
+    def _format_precip(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting precipitation condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_PRECIP]
+        temp = float(self.values[self.AMBIENT_TEMP])
+        if val == &#39;0&#39;: return &#39;dry&#39;
+        if val == &#39;1&#39;: return &#39;raining&#39; if temp &gt; 0 else &#39;snowing&#39;
+        if val == &#39;2&#39;: return &#39;snowing&#39;
+        return &#39;???&#39;
+
+    def _format_weather(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting overall weather condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_WEATHER]
+        if val == &#39;0&#39;: return &#39;unsafe&#39;
+        if val == &#39;1&#39;: return &#39;safe&#39;
+        return &#39;???&#39;
+    
+    def _format_humidity(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting humidity condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_HUMIDITY]
+        return self._format_lmh(val)  
+
+    def _format_pressure(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting pressure condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_PRESSURE]
+        return self._format_lmh(val)  
+
+    def _format_voltage(self):
+        &#34;&#34;&#34;
+        Convenience function for formatting voltage condition values
+        &#34;&#34;&#34;
+        val = self.values[self.COND_VOLTAGE]
+        return self._format_lmh(val)  
+
+    def get_cond(self, key):
+        &#34;&#34;&#34;
+        Convenience function for formatting condition values into human-readable strings
+
+        Parameters
+        ----------
+        key : string
+            EngineeringData condition Access key to format. e.g. `EngineeringData.COND_OVERCAST`
+
+        Returns
+        -------
+        formatted_value : string
+            Human readable interpretation of the condition enumerations
+
+        Examples
+        --------
+        When `EngineeringData[COND_OVERCAST] == 0`
+
+        &gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; rc, vals = bcs.getENAll()
+        &gt;&gt;&gt; ed = EngineeringData(vals)
+        &gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+        &#39;clear&#39;
+
+        When `EngineeringData[COND_OVERCAST] == 1`
+        
+        &gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+        &#39;cloudy&#39;
+        
+        When `EngineeringData[COND_OVERCAST] == 2`
+
+        &gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+        &#39;vcloudy&#39;
+
+        
+
+        &#34;&#34;&#34;
+        match key:
+            case self.COND_OVERCAST:
+                return self._format_overcast()
+            case self.COND_WIND:
+                return self._format_wind()
+            case self.COND_BRIGHTNESS:
+                return self._format_bright()
+            case self.COND_PRECIP:  
+                return self._format_precip()
+            case self.COND_WEATHER: 
+                return self._format_weather()
+            case self.COND_HUMIDITY: 
+                return self._format_humidity()
+            case self.COND_PRESSURE:  
+                return self._format_pressure()
+            case self.COND_VOLTAGE:          
+                return self._format_voltage()
+        return &#34;???&#34;    
+    
+    keys_cond = [        
+        COND_OVERCAST,
+        COND_WIND,
+        COND_BRIGHTNESS,
+        COND_PRECIP,
+        COND_WEATHER,
+        COND_HUMIDITY,
+        COND_PRESSURE,
+        COND_VOLTAGE
+    ]
+    &#34;&#34;&#34;List of EngineeringData condition keys&#34;&#34;&#34;
+
+    keys = [
+        WIND_HOT,
+        WIND_COLD,
+        WINDSPEED,
+        PRESSURE,
+        PRESSURE_TEMP,
+        AMBIENT_TEMP,
+        VOLTAGE,
+        DAYLIGHT,
+        SKY_AMBIENT,
+        SKY_TEMP,
+        CASE_TEMP,
+        RAIN_RAW,
+        RAIN_DPM,
+        HUMIDITY,
+        HUMIDITY_TEMP,
+        DEWPOINT
+    ]
+    &#34;&#34;&#34;List of EngineeringData parameter keys&#34;&#34;&#34;
+
+    values = {}
+    &#34;&#34;&#34;
+        Storage array for parsed values. 
+        
+        We advise you use array access on the storage class instance to access (see examples).
+
+        Parameters
+        ----------
+        key : string
+            Either an accessor key provided above (e.g. boltwood.EngineeringData.WIND_HOT or boltwood.EngineeringData.COND_OVERCAST)
+            or the raw string that key represents
+
+        Returns
+        -------
+        value : string
+            The value of the requested key
+
+        See Also
+        --------
+        Boltwood.getENAll()
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; rc, raw_values = bcs.getENAll()
+        &gt;&gt;&gt; values = EngineeringData(raw_values)
+        &gt;&gt;&gt; values[EngineeringData.WIND_HOT]
+        20
+        
+        &gt;&gt;&gt; values[EngineeringData.COND_OVERCAST]
+        0
+        &#34;&#34;&#34;
+
+    def __init__(self, str):
+        &#34;&#34;&#34;
+        Engineering Data string decoder
+        
+        Parameters
+        ----------
+        str : string
+            Value portion of a `Boltwood.getENAll()` call
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; rc, raw_values = bcs.getOCAll()
+        &gt;&gt;&gt; values = EngineeringData(raw_values)
+        &gt;&gt;&gt; print(f&#39;{values[EngineeringData.HUMIDITY]}&#39;)
+        ( 50.0, 1 )
+        &#34;&#34;&#34;
+        self._parse(str)
+
+    def _parse(self, str):
+        &#34;&#34;&#34;
+        Enineering Data decoder
+
+        Decodes the passed string from a space-delimited list of engineering data values and saves them
+        in boltwood.EngineeringData.values
+
+        Parameters
+        ----------
+        str : string
+            Value portion of a Boltwood.getENAll() call
+        &#34;&#34;&#34;
+        arr = str.split(&#39; &#39;)
+        for i in range(0, len(self.keys)):
+            self.values[self.keys[i]] = arr[i]
+        for i in range(0, len(self.keys_cond)):
+            self.values[self.keys_cond[i]] = arr[i+len(self.keys)]      
+
+    def __getitem__(self, key):
+        return self.values[key]</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="cloudsensor.EngineeringData.AMBIENT_TEMP"><code class="name">var <span class="ident">AMBIENT_TEMP</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Ambient Temperature sensor temperature measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.CASE_TEMP"><code class="name">var <span class="ident">CASE_TEMP</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Case Temperature sensor measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.COND_BRIGHTNESS"><code class="name">var <span class="ident">COND_BRIGHTNESS</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Brightness condition state (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.COND_HUMIDITY"><code class="name">var <span class="ident">COND_HUMIDITY</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Humidity condition state (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.COND_OVERCAST"><code class="name">var <span class="ident">COND_OVERCAST</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Overcast condition state (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.COND_PRECIP"><code class="name">var <span class="ident">COND_PRECIP</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Precipitation condition state (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.COND_PRESSURE"><code class="name">var <span class="ident">COND_PRESSURE</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Pressure condition state (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.COND_VOLTAGE"><code class="name">var <span class="ident">COND_VOLTAGE</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Voltage condition state (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.COND_WEATHER"><code class="name">var <span class="ident">COND_WEATHER</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Overall Weather condition state (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.COND_WIND"><code class="name">var <span class="ident">COND_WIND</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Windy condition state (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.DAYLIGHT"><code class="name">var <span class="ident">DAYLIGHT</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Daylight sensor measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.DEWPOINT"><code class="name">var <span class="ident">DEWPOINT</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Dewpoint sensor calculated value (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.HUMIDITY"><code class="name">var <span class="ident">HUMIDITY</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Humidity sensor measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.HUMIDITY_TEMP"><code class="name">var <span class="ident">HUMIDITY_TEMP</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Humidity sensor onboard temperature measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.PRESSURE"><code class="name">var <span class="ident">PRESSURE</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Pressure sensor measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.PRESSURE_TEMP"><code class="name">var <span class="ident">PRESSURE_TEMP</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Pressure sensor temperature measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.RAIN_DPM"><code class="name">var <span class="ident">RAIN_DPM</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Rain sensor drops/minute measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.RAIN_RAW"><code class="name">var <span class="ident">RAIN_RAW</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Rain sensor's instantaneous raw drop sample (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.SKY_AMBIENT"><code class="name">var <span class="ident">SKY_AMBIENT</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Sky Temperature minus Ambient Temperature measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.SKY_TEMP"><code class="name">var <span class="ident">SKY_TEMP</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Sky Temperature sensor measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.VOLTAGE"><code class="name">var <span class="ident">VOLTAGE</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Power Supply Voltage sensor measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.WINDSPEED"><code class="name">var <span class="ident">WINDSPEED</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Windspeed sensor measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.WIND_COLD"><code class="name">var <span class="ident">WIND_COLD</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Windspeed sensor cold stock temperature measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.WIND_HOT"><code class="name">var <span class="ident">WIND_HOT</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for EngineeringData Windspeed sensor hot stock temperature measurement (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.keys"><code class="name">var <span class="ident">keys</span></code></dt>
+<dd>
+<div class="desc"><p>List of EngineeringData parameter keys</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.keys_cond"><code class="name">var <span class="ident">keys_cond</span></code></dt>
+<dd>
+<div class="desc"><p>List of EngineeringData condition keys</p></div>
+</dd>
+<dt id="cloudsensor.EngineeringData.values"><code class="name">var <span class="ident">values</span></code></dt>
+<dd>
+<div class="desc"><p>Storage array for parsed values. </p>
+<p>We advise you use array access on the storage class instance to access (see examples).</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>key</code></strong> :&ensp;<code>string</code></dt>
+<dd>Either an accessor key provided above (e.g. boltwood.EngineeringData.WIND_HOT or boltwood.EngineeringData.COND_OVERCAST)
+or the raw string that key represents</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>value</code></strong> :&ensp;<code>string</code></dt>
+<dd>The value of the requested key</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.Boltwood.getENAll" href="#cloudsensor.Boltwood.getENAll">Boltwood.getENAll()</a></code></p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; rc, raw_values = bcs.getENAll()
+&gt;&gt;&gt; values = EngineeringData(raw_values)
+&gt;&gt;&gt; values[EngineeringData.WIND_HOT]
+20
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; values[EngineeringData.COND_OVERCAST]
+0
+</code></pre></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="cloudsensor.EngineeringData.get_cond"><code class="name flex">
+<span>def <span class="ident">get_cond</span></span>(<span>self, key)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Convenience function for formatting condition values into human-readable strings</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>key</code></strong> :&ensp;<code>string</code></dt>
+<dd>EngineeringData condition Access key to format. e.g. <code><a title="cloudsensor.EngineeringData.COND_OVERCAST" href="#cloudsensor.EngineeringData.COND_OVERCAST">EngineeringData.COND_OVERCAST</a></code></dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>formatted_value</code></strong> :&ensp;<code>string</code></dt>
+<dd>Human readable interpretation of the condition enumerations</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<p>When <code>EngineeringData[COND_OVERCAST] == 0</code></p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; rc, vals = bcs.getENAll()
+&gt;&gt;&gt; ed = EngineeringData(vals)
+&gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+'clear'
+</code></pre>
+<p>When <code>EngineeringData[COND_OVERCAST] == 1</code></p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+'cloudy'
+</code></pre>
+<p>When <code>EngineeringData[COND_OVERCAST] == 2</code></p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+'vcloudy'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_cond(self, key):
+    &#34;&#34;&#34;
+    Convenience function for formatting condition values into human-readable strings
+
+    Parameters
+    ----------
+    key : string
+        EngineeringData condition Access key to format. e.g. `EngineeringData.COND_OVERCAST`
+
+    Returns
+    -------
+    formatted_value : string
+        Human readable interpretation of the condition enumerations
+
+    Examples
+    --------
+    When `EngineeringData[COND_OVERCAST] == 0`
+
+    &gt;&gt;&gt; from pyboltwood import Boltwood, EngineeringData
+    &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+    &gt;&gt;&gt; bcs.open()
+    &gt;&gt;&gt; rc, vals = bcs.getENAll()
+    &gt;&gt;&gt; ed = EngineeringData(vals)
+    &gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+    &#39;clear&#39;
+
+    When `EngineeringData[COND_OVERCAST] == 1`
+    
+    &gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+    &#39;cloudy&#39;
+    
+    When `EngineeringData[COND_OVERCAST] == 2`
+
+    &gt;&gt;&gt; ed.get_cond(EngineeringData.COND_OVERCAST)
+    &#39;vcloudy&#39;
+
+    
+
+    &#34;&#34;&#34;
+    match key:
+        case self.COND_OVERCAST:
+            return self._format_overcast()
+        case self.COND_WIND:
+            return self._format_wind()
+        case self.COND_BRIGHTNESS:
+            return self._format_bright()
+        case self.COND_PRECIP:  
+            return self._format_precip()
+        case self.COND_WEATHER: 
+            return self._format_weather()
+        case self.COND_HUMIDITY: 
+            return self._format_humidity()
+        case self.COND_PRESSURE:  
+            return self._format_pressure()
+        case self.COND_VOLTAGE:          
+            return self._format_voltage()
+    return &#34;???&#34;    </code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="cloudsensor.Interfaces"><code class="flex name class">
+<span>class <span class="ident">Interfaces</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A list of access keys used when accessing data via the <code><a title="cloudsensor.Boltwood.get" href="#cloudsensor.Boltwood.get">Boltwood.get()</a></code> and <code><a title="cloudsensor.Boltwood.put" href="#cloudsensor.Boltwood.put">Boltwood.put()</a></code> methods</p>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.Boltwood" href="#cloudsensor.Boltwood">Boltwood</a></code>, <code><a title="cloudsensor.ObservingConditions" href="#cloudsensor.ObservingConditions">ObservingConditions</a></code>, <code><a title="cloudsensor.SafetyMonitor" href="#cloudsensor.SafetyMonitor">SafetyMonitor</a></code>, <code><a title="cloudsensor.DeviceDescriptor" href="#cloudsensor.DeviceDescriptor">DeviceDescriptor</a></code>, <code><a title="cloudsensor.EngineeringData" href="#cloudsensor.EngineeringData">EngineeringData</a></code></p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions, DeviceDescriptor
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; bcs.get(Interfaces.OC, ObservingConditions.TEMPERATURE)
+(True, &quot;-10&quot;)
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; bcs.put(Interfaces.DD, DeviceDescriptor.STA_SSID, &quot;MyWiFiSSID&quot;)
+(True, &quot;&quot;)
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; bcs.put(Interfaces.OC, ObservingConditions.TEMPERATURE)
+(False, &quot;Invalid Argument: property 'temperature' is read-only&quot;)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Interfaces:
+    &#34;&#34;&#34;
+    A list of access keys used when accessing data via the `Boltwood.get()` and `Boltwood.put()` methods
+    
+    See Also
+    --------
+    Boltwood, ObservingConditions, SafetyMonitor, DeviceDescriptor, EngineeringData
+
+    Examples
+    --------
+    &gt;&gt;&gt; from pyboltwood import Boltwood, Interfaces, ObservingConditions, DeviceDescriptor
+    &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+    &gt;&gt;&gt; bcs.open()
+    &gt;&gt;&gt; bcs.get(Interfaces.OC, ObservingConditions.TEMPERATURE)
+    (True, &#34;-10&#34;)
+
+    &gt;&gt;&gt; bcs.put(Interfaces.DD, DeviceDescriptor.STA_SSID, &#34;MyWiFiSSID&#34;)
+    (True, &#34;&#34;)
+
+    &gt;&gt;&gt; bcs.put(Interfaces.OC, ObservingConditions.TEMPERATURE)
+    (False, &#34;Invalid Argument: property &#39;temperature&#39; is read-only&#34;)
+    &#34;&#34;&#34;
+    
+    OC = &#39;oc&#39;
+    &#34;&#34;&#34;Access key for Observing Conditions serial interface&#34;&#34;&#34;
+
+    SM = &#39;sm&#39;
+    &#34;&#34;&#34;Access key for Safety Monitor serial interface&#34;&#34;&#34;
+
+    DD = &#39;dd&#39;
+    &#34;&#34;&#34;Access key for Device Descriptors serial interface&#34;&#34;&#34;
+
+    EN = &#39;en&#39;
+    &#34;&#34;&#34;Access key for Engineering Data serial interface&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="cloudsensor.Interfaces.DD"><code class="name">var <span class="ident">DD</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for Device Descriptors serial interface</p></div>
+</dd>
+<dt id="cloudsensor.Interfaces.EN"><code class="name">var <span class="ident">EN</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for Engineering Data serial interface</p></div>
+</dd>
+<dt id="cloudsensor.Interfaces.OC"><code class="name">var <span class="ident">OC</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for Observing Conditions serial interface</p></div>
+</dd>
+<dt id="cloudsensor.Interfaces.SM"><code class="name">var <span class="ident">SM</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for Safety Monitor serial interface</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="cloudsensor.ObservingConditions"><code class="flex name class">
+<span>class <span class="ident">ObservingConditions</span></span>
+<span>(</span><span>str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>ObservingConditions 'all' parser and list of ObservingConditions access keys</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>str</code></strong> :&ensp;<code>string</code></dt>
+<dd>Results of a call to <code>Boltwood.getOC('all')</code></dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood, ObservingConditions
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; rc, raw_values = bcs.getOCAll()
+&gt;&gt;&gt; values = ObservingConditions(raw_values)
+&gt;&gt;&gt; print(f'{values[ObservingConditions.WIND_SPEED]}')
+1.0
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ObservingConditions:
+    ALL = &#39;all&#39;
+    &#34;&#34;&#34;Access key for a space-delimited list of all parameters in ObservingCondition (read-only)&#34;&#34;&#34;
+
+    AVERAGE_PERIOD = &#39;averageperiod&#39; 
+    &#34;&#34;&#34;Access key for the time period over which observations will be averaged in hours (read-only)&#34;&#34;&#34;
+    
+    CLOUD_COVER = &#39;cloudcover&#39; 
+    &#34;&#34;&#34;Access key for an estimate of the sky&#39;s cloud coverage in % (read-only)&#34;&#34;&#34;
+    
+    DEWPOINT = &#39;dewpoint&#39; 
+    &#34;&#34;&#34;Access key for the atmospheric dew point at the observatory in degrees Celcius (read-only)&#34;&#34;&#34;
+    
+    HUMIDITY = &#39;humidity&#39; 
+    &#34;&#34;&#34;Access key for the relative humidity at the observatory in % (read-only)&#34;&#34;&#34;
+    
+    PRESSURE = &#39;pressure&#39; 
+    &#34;&#34;&#34;Access key for the atmospheric pressure at the observatory in hPa (read-only)&#34;&#34;&#34;
+    
+    RAIN_RATE = &#39;rainrate&#39; 
+    &#34;&#34;&#34;Access key for an estimate of the rain rate at the observatory in mm/hr (read-only)&#34;&#34;&#34;
+    
+    SKY_BRIGHTNESS = &#39;skybrightness&#39; 
+    &#34;&#34;&#34;Access key for an estimate of the sky brightness at the observatory in Lux (read-only)&#34;&#34;&#34;
+    
+    SKY_QUALITY = &#39;skyquality&#39; 
+    &#34;&#34;&#34;Access key for the ASCOM sky quality property. Not supported, reports as &#39;NA&#39; (read-only)&#34;&#34;&#34;
+    
+    SKY_TEMPERATURE = &#39;skytemperature&#39; 
+    &#34;&#34;&#34;Access key for the sky temperature at the observatory in degrees Celcius (read-only)&#34;&#34;&#34;
+    
+    STAR_FWHM = &#39;starfwhm&#39; 
+    &#34;&#34;&#34;Access key for the ASCOM star FWHM property. Not supported, reports as &#39;NA&#39; (read-only)&#34;&#34;&#34;
+    
+    TEMPERATURE = &#39;temperature&#39; 
+    &#34;&#34;&#34;Access key for the ambient temperature at the observatory in degrees Celcius (read-only)&#34;&#34;&#34;
+    
+    WIND_DIRECTION = &#39;winddireciton&#39; 
+    &#34;&#34;&#34;Access key for the ASCOM Wind Direction property. Not supported, reports as &#39;NA&#39; (read-only)&#34;&#34;&#34;
+    
+    WIND_GUST = &#39;windgust&#39; 
+    &#34;&#34;&#34;Access key for the ASCOM Wind Gust property. Not supported, reports as &#39;NA&#39; (read-only)&#34;&#34;&#34;
+    
+    WIND_SPEED = &#39;windspeed&#39; 
+    &#34;&#34;&#34;Returns the wind speed at the observatory in m/s (read-only)&#34;&#34;&#34;
+
+    keys_all = [
+        AVERAGE_PERIOD,
+        CLOUD_COVER,
+        DEWPOINT,
+        HUMIDITY,
+        PRESSURE,
+        RAIN_RATE,
+        SKY_BRIGHTNESS,
+        SKY_QUALITY,
+        SKY_TEMPERATURE,
+        STAR_FWHM,
+        TEMPERATURE,
+        WIND_DIRECTION,
+        WIND_GUST,
+        WIND_SPEED,
+    ]
+    &#34;&#34;&#34;List of all keys provided by the &#39;all&#39; access key, in proper API order&#34;&#34;&#34;
+
+    _values = {}
+
+    def __init__(self, str):
+        &#34;&#34;&#34;
+        ObservingConditions &#39;all&#39; parser and list of ObservingConditions access keys
+
+        Parameters
+        ----------
+        str : string
+            Results of a call to `Boltwood.getOC(&#39;all&#39;)`
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, ObservingConditions
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; rc, raw_values = bcs.getOCAll()
+        &gt;&gt;&gt; values = ObservingConditions(raw_values)
+        &gt;&gt;&gt; print(f&#39;{values[ObservingConditions.WIND_SPEED]}&#39;)
+        1.0
+        &#34;&#34;&#34;
+        self._parse(str)
+
+    def _parse(self, str):
+        arr = str.split(&#39; &#39;)
+        for i in range(0, len(self.keys_all)):
+            self._values[self.keys_all[i]] = arr[i]
+
+    def __getitem__(self, key):
+        &#34;&#34;&#34;
+        Array accessor for parsed values, indexed by access keys listed above
+
+        Parameters
+        ----------
+        key : string
+            ObservingConditions access key to retrieve
+
+        Returns
+        -------
+        value : string
+            Stored value for provided access key 
+        &#34;&#34;&#34;
+        return self._values[key]</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="cloudsensor.ObservingConditions.ALL"><code class="name">var <span class="ident">ALL</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for a space-delimited list of all parameters in ObservingCondition (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.AVERAGE_PERIOD"><code class="name">var <span class="ident">AVERAGE_PERIOD</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the time period over which observations will be averaged in hours (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.CLOUD_COVER"><code class="name">var <span class="ident">CLOUD_COVER</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for an estimate of the sky's cloud coverage in % (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.DEWPOINT"><code class="name">var <span class="ident">DEWPOINT</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the atmospheric dew point at the observatory in degrees Celcius (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.HUMIDITY"><code class="name">var <span class="ident">HUMIDITY</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the relative humidity at the observatory in % (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.PRESSURE"><code class="name">var <span class="ident">PRESSURE</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the atmospheric pressure at the observatory in hPa (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.RAIN_RATE"><code class="name">var <span class="ident">RAIN_RATE</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for an estimate of the rain rate at the observatory in mm/hr (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.SKY_BRIGHTNESS"><code class="name">var <span class="ident">SKY_BRIGHTNESS</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for an estimate of the sky brightness at the observatory in Lux (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.SKY_QUALITY"><code class="name">var <span class="ident">SKY_QUALITY</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the ASCOM sky quality property. Not supported, reports as 'NA' (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.SKY_TEMPERATURE"><code class="name">var <span class="ident">SKY_TEMPERATURE</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the sky temperature at the observatory in degrees Celcius (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.STAR_FWHM"><code class="name">var <span class="ident">STAR_FWHM</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the ASCOM star FWHM property. Not supported, reports as 'NA' (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.TEMPERATURE"><code class="name">var <span class="ident">TEMPERATURE</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the ambient temperature at the observatory in degrees Celcius (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.WIND_DIRECTION"><code class="name">var <span class="ident">WIND_DIRECTION</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the ASCOM Wind Direction property. Not supported, reports as 'NA' (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.WIND_GUST"><code class="name">var <span class="ident">WIND_GUST</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the ASCOM Wind Gust property. Not supported, reports as 'NA' (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.WIND_SPEED"><code class="name">var <span class="ident">WIND_SPEED</span></code></dt>
+<dd>
+<div class="desc"><p>Returns the wind speed at the observatory in m/s (read-only)</p></div>
+</dd>
+<dt id="cloudsensor.ObservingConditions.keys_all"><code class="name">var <span class="ident">keys_all</span></code></dt>
+<dd>
+<div class="desc"><p>List of all keys provided by the 'all' access key, in proper API order</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="cloudsensor.SafetyMonitor"><code class="flex name class">
+<span>class <span class="ident">SafetyMonitor</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A list of access keys used when accessing data via <code><a title="cloudsensor.Boltwood.getSM" href="#cloudsensor.Boltwood.getSM">Boltwood.getSM()</a></code></p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood, SafetyMonitor
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; bcs.getSM(SafetyMonitor.IS_SAFE)
+(True, &quot;1&quot;)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SafetyMonitor:
+    &#34;&#34;&#34;
+    A list of access keys used when accessing data via `Boltwood.getSM()`
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; from pyboltwood import Boltwood, SafetyMonitor
+    &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+    &gt;&gt;&gt; bcs.open()
+    &gt;&gt;&gt; bcs.getSM(SafetyMonitor.IS_SAFE)
+    (True, &#34;1&#34;)
+    &#34;&#34;&#34;
+
+    IS_SAFE = &#34;isSafe&#34;
+    &#34;&#34;&#34;
+    Access key for the ASCOM Safety Monitor &#39;isSafe&#39; property (read-only)
+    
+    1 is safe, 0 is unsafe
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="cloudsensor.SafetyMonitor.IS_SAFE"><code class="name">var <span class="ident">IS_SAFE</span></code></dt>
+<dd>
+<div class="desc"><p>Access key for the ASCOM Safety Monitor 'isSafe' property (read-only)</p>
+<p>1 is safe, 0 is unsafe</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="cloudsensor.Thresholds"><code class="flex name class">
+<span>class <span class="ident">Thresholds</span></span>
+<span>(</span><span>str='')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger decoder class </p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>str</code></strong> :&ensp;<code>string</code></dt>
+<dd>The value result of a call to <code>boltwood.Boltwood.getOCThresholds()</code></dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<p><code><a title="cloudsensor.Boltwood.getOCThresholds" href="#cloudsensor.Boltwood.getOCThresholds">Boltwood.getOCThresholds()</a></code></p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood, Thresholds
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;)
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; rc, raw_values = bcs.getOCThresholds()
+&gt;&gt;&gt; values = Thresholds(raw_values)
+&gt;&gt;&gt; values.threshValue[Thresholds.CLEAR_CLOUDY] # Threshold value
+-10
+&gt;&gt;&gt; values.roofTrig[Thresholds.CLEAR_CLOUDY] # Active as safety trigger
+0
+&gt;&gt;&gt; values[Thresholds.CLEAR_CLOUDY] # Tuple of threshold value &amp; safety trigger
+(&quot;-10&quot;, 0)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Thresholds:
+    CLEAR_CLOUDY     = &#39;clearCloudy&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting cloudy when (sky temp - ambient temp) &gt; threshold in degrees Celcius&#34;&#34;&#34;
+
+    CLOUDY_VCLOUDY   = &#39;cloudyVeryCloudy&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting vcloudy when (sky temp - ambient temp) &gt; threshold in degrees Celcius&#34;&#34;&#34;
+
+    CALM_WINDY       = &#39;calmWindy&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting windy when windspeed &gt; threshold in km/h&#34;&#34;&#34;
+
+    WINDY_VWINDY     = &#39;windyVeryWindy&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting vwindy when windspeed &gt; threshold in km/h&#34;&#34;&#34;
+
+    DARK_LIGHT       = &#39;darkLight&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting light when brightness &gt; threshold in %&#34;&#34;&#34;
+
+    LIGHT_VLIGHT     = &#39;lightVeryLight&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting vlight when brightness &gt; threshold in %&#34;&#34;&#34;
+
+    RAIN_SENSITIVITY = &#39;rainSensitivity&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting rain hit when rain sensor duty cycle &gt; threshold in microseconds&#34;&#34;&#34;
+
+    RAIN_DPM         = &#39;rainDpmThreshold&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting raining/snowing when dpm &gt; threshold in drops/minute&#34;&#34;&#34;
+
+    HUMIDITY_LOW     = &#39;humidityLow&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting low humidity when humidity &lt; threshold in %&#34;&#34;&#34;
+
+    HUMIDITY_HIGH    = &#39;humidityHigh&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting high humidity when humidity &gt; threshold in %&#34;&#34;&#34;
+
+    PRESSURE_LOW     = &#39;pressureLow&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting low pressure when pressure &lt; threshold in mBar&#34;&#34;&#34;
+
+    PRESSURE_HIGH    = &#39;pressureHigh&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting high pressure when pressure &gt; threshold in mBar&#34;&#34;&#34;
+
+    VOLTAGE_LOW      = &#39;voltageLow&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting low voltage when voltage &lt; threshold in V&#34;&#34;&#34;
+
+    VOLTAGE_HIGH     = &#39;voltageHigh&#39;
+    &#34;&#34;&#34;Threshold/Safety Trigger accessor key for reporting high voltage when voltage &gt; threshold in V&#34;&#34;&#34;
+
+    keys = [
+        CLEAR_CLOUDY,     
+        CLOUDY_VCLOUDY,      
+        CALM_WINDY,       
+        WINDY_VWINDY,        
+        DARK_LIGHT,       
+        LIGHT_VLIGHT,    
+        RAIN_SENSITIVITY,
+        RAIN_DPM,       
+        HUMIDITY_LOW,      
+        HUMIDITY_HIGH, 
+        PRESSURE_LOW,      
+        PRESSURE_HIGH,      
+        VOLTAGE_LOW,       
+        VOLTAGE_HIGH
+    ]
+    &#34;&#34;&#34;List of Threshold/Safety Trigger accessor keys&#34;&#34;&#34;
+
+    threshValue = {}
+    &#34;&#34;&#34;List of Threshold values indexed by Threshold/Safety Trigger accessor keys&#34;&#34;&#34;
+
+    roofTrig = {}
+    &#34;&#34;&#34;List of Safety Trigger values indexed by Threshold/Safety Trigger accessor keys&#34;&#34;&#34;
+    
+    def __init__(self, str=&#39;&#39;):
+        &#34;&#34;&#34;
+        Threshold/Safety Trigger decoder class 
+
+        Parameters
+        ----------
+        str : string
+            The value result of a call to `boltwood.Boltwood.getOCThresholds()`
+
+        See Also
+        --------
+        Boltwood.getOCThresholds()
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, Thresholds
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;)
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; rc, raw_values = bcs.getOCThresholds()
+        &gt;&gt;&gt; values = Thresholds(raw_values)
+        &gt;&gt;&gt; values.threshValue[Thresholds.CLEAR_CLOUDY] # Threshold value
+        -10
+        &gt;&gt;&gt; values.roofTrig[Thresholds.CLEAR_CLOUDY] # Active as safety trigger
+        0
+        &gt;&gt;&gt; values[Thresholds.CLEAR_CLOUDY] # Tuple of threshold value &amp; safety trigger
+        (&#34;-10&#34;, 0)
+        &#34;&#34;&#34;
+        self._parse(str)
+
+    def _parse(self, str):
+        if not str: return
+        arr = str.split(&#34; &#34;)
+        for i in range(0, len(self.keys)):
+            self.threshValue[self.keys[i]] = arr[i]
+            self.roofTrig[self.keys[i]] = arr[i + len(self.keys)]
+                               
+    def to_string(self):
+        &#34;&#34;&#34;
+        Encodes values stored in this class instance into a string for transmission via boltwood.Boltwood.setOCThresholds()
+
+        Examples
+        --------
+        &gt;&gt;&gt; from pyboltwood import Boltwood, Thresholds
+        &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;) 
+        &gt;&gt;&gt; bcs.open()
+        &gt;&gt;&gt; # Fetch existing thresholds first
+        &gt;&gt;&gt; rc, raw_thresholds = bcs.getOCThresholds() 
+        &gt;&gt;&gt; # Parse the result
+        &gt;&gt;&gt; thresholds = Thresholds(raw_thresholds) 
+        &gt;&gt;&gt; # Add Thresholds.CLEAR_CLOUDY to list of active safety triggers
+        &gt;&gt;&gt; thresholds.roofTrig[Thresholds.CLEAR_CLOUDY] = 1 
+        &gt;&gt;&gt; # Send updated threshold structure to Boltwood, expect: (True, &#34;&#34;)
+        &gt;&gt;&gt; bcs.setOCThresholds(thresholds.to_string())
+        (True, &#34;&#34;)
+
+        Returns
+        -------
+        encoded_str : string
+            The Threshold/Safety Trigger values stored in proper order for transmission to a BCSIII device over a serial connection
+        &#34;&#34;&#34;
+        tmp = []
+        for key in self.keys:
+            tmp.append(&#34;{}&#34;.format(self.threshValue[key]))
+        for key in self.keys:
+            tmp.append(&#34;{}&#34;.format(self.roofTrig[key]))
+        return &#39; &#39;.join(tmp)
+    
+    def __getitem__(self, key):
+        &#34;&#34;&#34;
+        Accessor for Thresholds/Safety Trigger entries
+
+        Looks up a stored Threshold/Safety Trigger value by access key and returns it as a tuple
+
+        Parameters
+        ----------
+        key : string
+            Thresholds/Safety Trigger ccess key, or raw string representing the threshold to be accessed
+
+        Returns
+        -------
+        threshold : string
+            string-encoded value of the Thresholds
+
+        safety_trigger : string
+            string-encoded value of whether the Safety Trigger is active for the provided key (&#39;1&#39; for active, &#39;0&#39; for inactive)    
+        &#34;&#34;&#34;
+        return (self.threshValue[key], self.roofTrig[key])</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="cloudsensor.Thresholds.CALM_WINDY"><code class="name">var <span class="ident">CALM_WINDY</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting windy when windspeed &gt; threshold in km/h</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.CLEAR_CLOUDY"><code class="name">var <span class="ident">CLEAR_CLOUDY</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting cloudy when (sky temp - ambient temp) &gt; threshold in degrees Celcius</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.CLOUDY_VCLOUDY"><code class="name">var <span class="ident">CLOUDY_VCLOUDY</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting vcloudy when (sky temp - ambient temp) &gt; threshold in degrees Celcius</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.DARK_LIGHT"><code class="name">var <span class="ident">DARK_LIGHT</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting light when brightness &gt; threshold in %</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.HUMIDITY_HIGH"><code class="name">var <span class="ident">HUMIDITY_HIGH</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting high humidity when humidity &gt; threshold in %</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.HUMIDITY_LOW"><code class="name">var <span class="ident">HUMIDITY_LOW</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting low humidity when humidity &lt; threshold in %</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.LIGHT_VLIGHT"><code class="name">var <span class="ident">LIGHT_VLIGHT</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting vlight when brightness &gt; threshold in %</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.PRESSURE_HIGH"><code class="name">var <span class="ident">PRESSURE_HIGH</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting high pressure when pressure &gt; threshold in mBar</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.PRESSURE_LOW"><code class="name">var <span class="ident">PRESSURE_LOW</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting low pressure when pressure &lt; threshold in mBar</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.RAIN_DPM"><code class="name">var <span class="ident">RAIN_DPM</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting raining/snowing when dpm &gt; threshold in drops/minute</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.RAIN_SENSITIVITY"><code class="name">var <span class="ident">RAIN_SENSITIVITY</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting rain hit when rain sensor duty cycle &gt; threshold in microseconds</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.VOLTAGE_HIGH"><code class="name">var <span class="ident">VOLTAGE_HIGH</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting high voltage when voltage &gt; threshold in V</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.VOLTAGE_LOW"><code class="name">var <span class="ident">VOLTAGE_LOW</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting low voltage when voltage &lt; threshold in V</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.WINDY_VWINDY"><code class="name">var <span class="ident">WINDY_VWINDY</span></code></dt>
+<dd>
+<div class="desc"><p>Threshold/Safety Trigger accessor key for reporting vwindy when windspeed &gt; threshold in km/h</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.keys"><code class="name">var <span class="ident">keys</span></code></dt>
+<dd>
+<div class="desc"><p>List of Threshold/Safety Trigger accessor keys</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.roofTrig"><code class="name">var <span class="ident">roofTrig</span></code></dt>
+<dd>
+<div class="desc"><p>List of Safety Trigger values indexed by Threshold/Safety Trigger accessor keys</p></div>
+</dd>
+<dt id="cloudsensor.Thresholds.threshValue"><code class="name">var <span class="ident">threshValue</span></code></dt>
+<dd>
+<div class="desc"><p>List of Threshold values indexed by Threshold/Safety Trigger accessor keys</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="cloudsensor.Thresholds.to_string"><code class="name flex">
+<span>def <span class="ident">to_string</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Encodes values stored in this class instance into a string for transmission via boltwood.Boltwood.setOCThresholds()</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from pyboltwood import Boltwood, Thresholds
+&gt;&gt;&gt; bcs = Boltwood(&quot;COM1&quot;) 
+&gt;&gt;&gt; bcs.open()
+&gt;&gt;&gt; # Fetch existing thresholds first
+&gt;&gt;&gt; rc, raw_thresholds = bcs.getOCThresholds() 
+&gt;&gt;&gt; # Parse the result
+&gt;&gt;&gt; thresholds = Thresholds(raw_thresholds) 
+&gt;&gt;&gt; # Add Thresholds.CLEAR_CLOUDY to list of active safety triggers
+&gt;&gt;&gt; thresholds.roofTrig[Thresholds.CLEAR_CLOUDY] = 1 
+&gt;&gt;&gt; # Send updated threshold structure to Boltwood, expect: (True, &quot;&quot;)
+&gt;&gt;&gt; bcs.setOCThresholds(thresholds.to_string())
+(True, &quot;&quot;)
+</code></pre>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>encoded_str</code></strong> :&ensp;<code>string</code></dt>
+<dd>The Threshold/Safety Trigger values stored in proper order for transmission to a BCSIII device over a serial connection</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_string(self):
+    &#34;&#34;&#34;
+    Encodes values stored in this class instance into a string for transmission via boltwood.Boltwood.setOCThresholds()
+
+    Examples
+    --------
+    &gt;&gt;&gt; from pyboltwood import Boltwood, Thresholds
+    &gt;&gt;&gt; bcs = Boltwood(&#34;COM1&#34;) 
+    &gt;&gt;&gt; bcs.open()
+    &gt;&gt;&gt; # Fetch existing thresholds first
+    &gt;&gt;&gt; rc, raw_thresholds = bcs.getOCThresholds() 
+    &gt;&gt;&gt; # Parse the result
+    &gt;&gt;&gt; thresholds = Thresholds(raw_thresholds) 
+    &gt;&gt;&gt; # Add Thresholds.CLEAR_CLOUDY to list of active safety triggers
+    &gt;&gt;&gt; thresholds.roofTrig[Thresholds.CLEAR_CLOUDY] = 1 
+    &gt;&gt;&gt; # Send updated threshold structure to Boltwood, expect: (True, &#34;&#34;)
+    &gt;&gt;&gt; bcs.setOCThresholds(thresholds.to_string())
+    (True, &#34;&#34;)
+
+    Returns
+    -------
+    encoded_str : string
+        The Threshold/Safety Trigger values stored in proper order for transmission to a BCSIII device over a serial connection
+    &#34;&#34;&#34;
+    tmp = []
+    for key in self.keys:
+        tmp.append(&#34;{}&#34;.format(self.threshValue[key]))
+    for key in self.keys:
+        tmp.append(&#34;{}&#34;.format(self.roofTrig[key]))
+    return &#39; &#39;.join(tmp)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#pyboltwood">pyboltwood</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#installing-dependencies">Installing dependencies</a></li>
+<li><a href="#determining-the-boltwoods-serial-port">Determining the Boltwood's serial port</a><ul>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#ubuntu-2204-lts">Ubuntu 22.04 LTS</a></li>
+</ul>
+</li>
+<li><a href="#the-serial-api">The serial API</a><ul>
+<li><a href="#requests">Requests</a></li>
+<li><a href="#responses">Responses</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#python-wrappers">Python wrappers</a><ul>
+<li><a href="#examples_1">Examples</a></li>
+<li><a href="#convenience-accessors">Convenience Accessors</a></li>
+<li><a href="#amalgamation-accessors">Amalgamation Accessors</a></li>
+</ul>
+</li>
+<li><a href="#your-first-program">Your first program</a></li>
+<li><a href="#accessing-thresholds-safety-triggers">Accessing Thresholds &amp; Safety Triggers</a></li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="cloudsensor.Boltwood" href="#cloudsensor.Boltwood">Boltwood</a></code></h4>
+<ul class="two-column">
+<li><code><a title="cloudsensor.Boltwood.close" href="#cloudsensor.Boltwood.close">close</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.debug" href="#cloudsensor.Boltwood.debug">debug</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.get" href="#cloudsensor.Boltwood.get">get</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getAPSSID" href="#cloudsensor.Boltwood.getAPSSID">getAPSSID</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getDD" href="#cloudsensor.Boltwood.getDD">getDD</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getEN" href="#cloudsensor.Boltwood.getEN">getEN</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getENAll" href="#cloudsensor.Boltwood.getENAll">getENAll</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getFWRev" href="#cloudsensor.Boltwood.getFWRev">getFWRev</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getOC" href="#cloudsensor.Boltwood.getOC">getOC</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getOCAll" href="#cloudsensor.Boltwood.getOCAll">getOCAll</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getOCThresholds" href="#cloudsensor.Boltwood.getOCThresholds">getOCThresholds</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getSM" href="#cloudsensor.Boltwood.getSM">getSM</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getSMAll" href="#cloudsensor.Boltwood.getSMAll">getSMAll</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getSTAIP" href="#cloudsensor.Boltwood.getSTAIP">getSTAIP</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getSTASSID" href="#cloudsensor.Boltwood.getSTASSID">getSTASSID</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.getSerial" href="#cloudsensor.Boltwood.getSerial">getSerial</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.open" href="#cloudsensor.Boltwood.open">open</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.port" href="#cloudsensor.Boltwood.port">port</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.put" href="#cloudsensor.Boltwood.put">put</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.putDD" href="#cloudsensor.Boltwood.putDD">putDD</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.putOC" href="#cloudsensor.Boltwood.putOC">putOC</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.scan" href="#cloudsensor.Boltwood.scan">scan</a></code></li>
+<li><code><a title="cloudsensor.Boltwood.setOCThresholds" href="#cloudsensor.Boltwood.setOCThresholds">setOCThresholds</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="cloudsensor.DeviceDescriptor" href="#cloudsensor.DeviceDescriptor">DeviceDescriptor</a></code></h4>
+<ul class="two-column">
+<li><code><a title="cloudsensor.DeviceDescriptor.AP_SSID" href="#cloudsensor.DeviceDescriptor.AP_SSID">AP_SSID</a></code></li>
+<li><code><a title="cloudsensor.DeviceDescriptor.FW_REVISION" href="#cloudsensor.DeviceDescriptor.FW_REVISION">FW_REVISION</a></code></li>
+<li><code><a title="cloudsensor.DeviceDescriptor.SERIAL" href="#cloudsensor.DeviceDescriptor.SERIAL">SERIAL</a></code></li>
+<li><code><a title="cloudsensor.DeviceDescriptor.STA_IP" href="#cloudsensor.DeviceDescriptor.STA_IP">STA_IP</a></code></li>
+<li><code><a title="cloudsensor.DeviceDescriptor.STA_PASS" href="#cloudsensor.DeviceDescriptor.STA_PASS">STA_PASS</a></code></li>
+<li><code><a title="cloudsensor.DeviceDescriptor.STA_SSID" href="#cloudsensor.DeviceDescriptor.STA_SSID">STA_SSID</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="cloudsensor.EngineeringData" href="#cloudsensor.EngineeringData">EngineeringData</a></code></h4>
+<ul class="two-column">
+<li><code><a title="cloudsensor.EngineeringData.AMBIENT_TEMP" href="#cloudsensor.EngineeringData.AMBIENT_TEMP">AMBIENT_TEMP</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.CASE_TEMP" href="#cloudsensor.EngineeringData.CASE_TEMP">CASE_TEMP</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.COND_BRIGHTNESS" href="#cloudsensor.EngineeringData.COND_BRIGHTNESS">COND_BRIGHTNESS</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.COND_HUMIDITY" href="#cloudsensor.EngineeringData.COND_HUMIDITY">COND_HUMIDITY</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.COND_OVERCAST" href="#cloudsensor.EngineeringData.COND_OVERCAST">COND_OVERCAST</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.COND_PRECIP" href="#cloudsensor.EngineeringData.COND_PRECIP">COND_PRECIP</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.COND_PRESSURE" href="#cloudsensor.EngineeringData.COND_PRESSURE">COND_PRESSURE</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.COND_VOLTAGE" href="#cloudsensor.EngineeringData.COND_VOLTAGE">COND_VOLTAGE</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.COND_WEATHER" href="#cloudsensor.EngineeringData.COND_WEATHER">COND_WEATHER</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.COND_WIND" href="#cloudsensor.EngineeringData.COND_WIND">COND_WIND</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.DAYLIGHT" href="#cloudsensor.EngineeringData.DAYLIGHT">DAYLIGHT</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.DEWPOINT" href="#cloudsensor.EngineeringData.DEWPOINT">DEWPOINT</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.HUMIDITY" href="#cloudsensor.EngineeringData.HUMIDITY">HUMIDITY</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.HUMIDITY_TEMP" href="#cloudsensor.EngineeringData.HUMIDITY_TEMP">HUMIDITY_TEMP</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.PRESSURE" href="#cloudsensor.EngineeringData.PRESSURE">PRESSURE</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.PRESSURE_TEMP" href="#cloudsensor.EngineeringData.PRESSURE_TEMP">PRESSURE_TEMP</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.RAIN_DPM" href="#cloudsensor.EngineeringData.RAIN_DPM">RAIN_DPM</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.RAIN_RAW" href="#cloudsensor.EngineeringData.RAIN_RAW">RAIN_RAW</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.SKY_AMBIENT" href="#cloudsensor.EngineeringData.SKY_AMBIENT">SKY_AMBIENT</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.SKY_TEMP" href="#cloudsensor.EngineeringData.SKY_TEMP">SKY_TEMP</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.VOLTAGE" href="#cloudsensor.EngineeringData.VOLTAGE">VOLTAGE</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.WINDSPEED" href="#cloudsensor.EngineeringData.WINDSPEED">WINDSPEED</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.WIND_COLD" href="#cloudsensor.EngineeringData.WIND_COLD">WIND_COLD</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.WIND_HOT" href="#cloudsensor.EngineeringData.WIND_HOT">WIND_HOT</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.get_cond" href="#cloudsensor.EngineeringData.get_cond">get_cond</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.keys" href="#cloudsensor.EngineeringData.keys">keys</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.keys_cond" href="#cloudsensor.EngineeringData.keys_cond">keys_cond</a></code></li>
+<li><code><a title="cloudsensor.EngineeringData.values" href="#cloudsensor.EngineeringData.values">values</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="cloudsensor.Interfaces" href="#cloudsensor.Interfaces">Interfaces</a></code></h4>
+<ul class="">
+<li><code><a title="cloudsensor.Interfaces.DD" href="#cloudsensor.Interfaces.DD">DD</a></code></li>
+<li><code><a title="cloudsensor.Interfaces.EN" href="#cloudsensor.Interfaces.EN">EN</a></code></li>
+<li><code><a title="cloudsensor.Interfaces.OC" href="#cloudsensor.Interfaces.OC">OC</a></code></li>
+<li><code><a title="cloudsensor.Interfaces.SM" href="#cloudsensor.Interfaces.SM">SM</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="cloudsensor.ObservingConditions" href="#cloudsensor.ObservingConditions">ObservingConditions</a></code></h4>
+<ul class="two-column">
+<li><code><a title="cloudsensor.ObservingConditions.ALL" href="#cloudsensor.ObservingConditions.ALL">ALL</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.AVERAGE_PERIOD" href="#cloudsensor.ObservingConditions.AVERAGE_PERIOD">AVERAGE_PERIOD</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.CLOUD_COVER" href="#cloudsensor.ObservingConditions.CLOUD_COVER">CLOUD_COVER</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.DEWPOINT" href="#cloudsensor.ObservingConditions.DEWPOINT">DEWPOINT</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.HUMIDITY" href="#cloudsensor.ObservingConditions.HUMIDITY">HUMIDITY</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.PRESSURE" href="#cloudsensor.ObservingConditions.PRESSURE">PRESSURE</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.RAIN_RATE" href="#cloudsensor.ObservingConditions.RAIN_RATE">RAIN_RATE</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.SKY_BRIGHTNESS" href="#cloudsensor.ObservingConditions.SKY_BRIGHTNESS">SKY_BRIGHTNESS</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.SKY_QUALITY" href="#cloudsensor.ObservingConditions.SKY_QUALITY">SKY_QUALITY</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.SKY_TEMPERATURE" href="#cloudsensor.ObservingConditions.SKY_TEMPERATURE">SKY_TEMPERATURE</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.STAR_FWHM" href="#cloudsensor.ObservingConditions.STAR_FWHM">STAR_FWHM</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.TEMPERATURE" href="#cloudsensor.ObservingConditions.TEMPERATURE">TEMPERATURE</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.WIND_DIRECTION" href="#cloudsensor.ObservingConditions.WIND_DIRECTION">WIND_DIRECTION</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.WIND_GUST" href="#cloudsensor.ObservingConditions.WIND_GUST">WIND_GUST</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.WIND_SPEED" href="#cloudsensor.ObservingConditions.WIND_SPEED">WIND_SPEED</a></code></li>
+<li><code><a title="cloudsensor.ObservingConditions.keys_all" href="#cloudsensor.ObservingConditions.keys_all">keys_all</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="cloudsensor.SafetyMonitor" href="#cloudsensor.SafetyMonitor">SafetyMonitor</a></code></h4>
+<ul class="">
+<li><code><a title="cloudsensor.SafetyMonitor.IS_SAFE" href="#cloudsensor.SafetyMonitor.IS_SAFE">IS_SAFE</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="cloudsensor.Thresholds" href="#cloudsensor.Thresholds">Thresholds</a></code></h4>
+<ul class="two-column">
+<li><code><a title="cloudsensor.Thresholds.CALM_WINDY" href="#cloudsensor.Thresholds.CALM_WINDY">CALM_WINDY</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.CLEAR_CLOUDY" href="#cloudsensor.Thresholds.CLEAR_CLOUDY">CLEAR_CLOUDY</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.CLOUDY_VCLOUDY" href="#cloudsensor.Thresholds.CLOUDY_VCLOUDY">CLOUDY_VCLOUDY</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.DARK_LIGHT" href="#cloudsensor.Thresholds.DARK_LIGHT">DARK_LIGHT</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.HUMIDITY_HIGH" href="#cloudsensor.Thresholds.HUMIDITY_HIGH">HUMIDITY_HIGH</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.HUMIDITY_LOW" href="#cloudsensor.Thresholds.HUMIDITY_LOW">HUMIDITY_LOW</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.LIGHT_VLIGHT" href="#cloudsensor.Thresholds.LIGHT_VLIGHT">LIGHT_VLIGHT</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.PRESSURE_HIGH" href="#cloudsensor.Thresholds.PRESSURE_HIGH">PRESSURE_HIGH</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.PRESSURE_LOW" href="#cloudsensor.Thresholds.PRESSURE_LOW">PRESSURE_LOW</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.RAIN_DPM" href="#cloudsensor.Thresholds.RAIN_DPM">RAIN_DPM</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.RAIN_SENSITIVITY" href="#cloudsensor.Thresholds.RAIN_SENSITIVITY">RAIN_SENSITIVITY</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.VOLTAGE_HIGH" href="#cloudsensor.Thresholds.VOLTAGE_HIGH">VOLTAGE_HIGH</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.VOLTAGE_LOW" href="#cloudsensor.Thresholds.VOLTAGE_LOW">VOLTAGE_LOW</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.WINDY_VWINDY" href="#cloudsensor.Thresholds.WINDY_VWINDY">WINDY_VWINDY</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.keys" href="#cloudsensor.Thresholds.keys">keys</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.roofTrig" href="#cloudsensor.Thresholds.roofTrig">roofTrig</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.threshValue" href="#cloudsensor.Thresholds.threshValue">threshValue</a></code></li>
+<li><code><a title="cloudsensor.Thresholds.to_string" href="#cloudsensor.Thresholds.to_string">to_string</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
